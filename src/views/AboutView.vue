@@ -1,5 +1,6 @@
 <template>
     <div>
-       bajs
+          hej
     </div>
+  
 </template>
