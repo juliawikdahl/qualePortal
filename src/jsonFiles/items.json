@@ -1,0 +1,24 @@
+{
+    "Components": [
+        {
+            "Id": 1,
+            "Name": "Cinnamon bun",
+            "Description": "Bun with cinnamon flavor!"
+        },
+        {
+            "Id": 2,
+            "Name": "Danish bread coconut",
+            "Description": "Danish bread with coconut flakes ontop"
+        },
+        {
+            "Id": 3,
+            "Name": "Strawberry Cheesecake",
+            "Description": "Cheesecake with strawberries"
+        },
+        {
+            "Id": 4,
+            "Name": "Coconut bun",
+            "Description": "Bun with coconut flavor!"
+        },
+    ]
+}

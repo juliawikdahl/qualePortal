@@ -1,0 +1,21 @@
+{
+    "Categories": 
+        {
+            "name": "Pastries",
+            "underCategories": [
+            {
+                "Name": "Buns",
+                "ComponentsIds": [1, 4]
+            },
+            {
+                "Name": "Danish breads",
+                "ComponentsIds": [2]
+            },
+            {
+                "Name": "Cheesecakes",
+                "ComponentsIds": [3]
+            }
+        ]
+        }
+    
+}
