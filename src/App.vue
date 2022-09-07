@@ -1,8 +1,19 @@
 <script>
+import treeView from './components/treeView.vue'
+import root from './jsonFiles/categories.json'
 import navbarHeader from './components/navbarHeader.vue'
   export default {
     name: "App",
-    components: { navbarHeader }
+    data() {
+        return{
+          root
+        
+      }
+    },
+    components: { 
+      navbarHeader,
+      treeView
+     }
 }
 
   
@@ -15,7 +26,7 @@ import navbarHeader from './components/navbarHeader.vue'
   <router-link :to="{ path: '/' }">
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
   </router-link>
- 
+  <treeView :node="root.Categories" />
  <router-view/>
  </div>
 
