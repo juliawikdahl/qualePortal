@@ -9,7 +9,8 @@
     </script>
 
 <template>
-    <button class="btn">Log in</button>
+
+    <router-link :to="{ path: '/signin' }"> <button class="btn">Log in</button></router-link>
 </template>
 
 <style>
