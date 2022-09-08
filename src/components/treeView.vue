@@ -41,7 +41,8 @@ class="node">
   #Tree{
     
     white-space: nowrap;
-   margin-right: 10rem;
+   max-width: 15rem;
+   min-width: 15rem;
     height: auto;
     color: white;
    background-color: rgb(48, 47, 47);
