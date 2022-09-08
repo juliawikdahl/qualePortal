@@ -42,6 +42,6 @@ import treeView from './components/treeView.vue'
   }
   #staticView{
     display:flex;
-    align-items: flex-end;
+    
   }
   </style>

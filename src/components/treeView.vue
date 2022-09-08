@@ -39,9 +39,9 @@ class="node">
 </script>
 <style scoped>
   #Tree{
-    display: ;
+    
     white-space: nowrap;
-   margin-right: 15rem;
+   margin-right: 10rem;
     height: auto;
     color: white;
    background-color: rgb(48, 47, 47);
