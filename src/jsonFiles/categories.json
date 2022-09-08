@@ -1,5 +1,5 @@
 {
-    "Categories": 
+    "Categories":[
         {
             "name": "Pastries",
             "underCategories": [
@@ -15,7 +15,9 @@
                 "Name": "Cheesecakes",
                 "ComponentsIds": [3]
             }
-        ],
+        ]
+        },
+        {
         "name": "Drinks",
             "underCategories": [
             {
@@ -31,7 +33,7 @@
                 "ComponentsIds": []
             }
         ]
-        
         }
-    
+    ]
+
 }

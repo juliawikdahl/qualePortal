@@ -23,7 +23,7 @@ import treeView from './components/treeView.vue'
   <router-link :to="{ path: '/' }">
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
   </router-link>
-  <treeView :node="root.Categories" :shouldBeExpanded="true" :BoldTitle="true"/>
+  <treeView v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
  <router-view/>
  </div>
 
