@@ -15,7 +15,23 @@
                 "Name": "Cheesecakes",
                 "ComponentsIds": [3]
             }
+        ],
+        "name": "Drinks",
+            "underCategories": [
+            {
+                "Name": "Coffee",
+                "ComponentsIds": []
+            },
+            {
+                "Name": "Tea",
+                "ComponentsIds": []
+            },
+            {
+                "Name": "Soda",
+                "ComponentsIds": []
+            }
         ]
+        
         }
     
 }
