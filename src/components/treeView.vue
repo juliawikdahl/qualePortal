@@ -1,22 +1,19 @@
 <template>
   <div id="Tree">
-<div >
-  <h2 class="root" v-if="depth == 0">Categories</h2>
-</div>
 <div
 @click="expanded = !expanded"
-:style="{'margin-left': `${depth < 2 ? `0` : `15`}px`}"
 class="node">
 
-<p class="tree" :style="{'font-size': `${BoldTitle ? '20px' : '16px'}`, 'font-weight': `${depth < 2 ? '900' : '300'}`}">{{node.name}}</p>
+<p class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
 </div>
-<!-- <treeView 
-v-if="expanded"
-v-for="child in node.underCategories" 
-:key="child.name" 
-:node ="child"
-:depth="depth + 1"
-/> -->
+<div v-if="expanded">
+  <treeView 
+  v-for="child in node.underCategories" 
+  :key="child.name" 
+  :node ="child"
+  :depth="depth + 1"
+  />
+</div>
 </div>
 </template>
 
@@ -40,3 +37,36 @@ v-for="child in node.underCategories"
       },
     }
 </script>
+<style scoped>
+  #Tree{
+    white-space: nowrap;
+    width: 20%;
+    height: auto;
+    color: white;
+   background-color: rgb(48, 47, 47);
+   
+   /* margin-right: 100rem;
+   margin-bottom: 4px;
+    */
+
+  }
+  #Tree p{
+    
+    padding-bottom: 2rem;
+   /* margin-right: 100rem;
+   margin-bottom: 4px;
+   white-space: nowrap;  */
+
+  }
+ .node{
+ 
+ }
+ .root{
+  
+ }
+ .tree{
+
+
+ }
+
+</style>
