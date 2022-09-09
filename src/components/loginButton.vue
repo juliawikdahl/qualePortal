@@ -2,6 +2,7 @@
     
     export default{
           name: 'loginButton',
+          
       }
             
         
@@ -10,7 +11,7 @@
 
 <template>
 
-    <router-link :to="{ path: '/signin' }"> <button class="btn">Log in</button></router-link>
+    <router-link :to="{ path: '/login' }"> <button class="btn">{{isSignedIn ? 'log out': 'Log in'}}</button></router-link>
 </template>
 
 <style>

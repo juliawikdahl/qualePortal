@@ -1,14 +1,14 @@
 <script>
    import LoginInfo from '../jsonFiles/signin.json'
+   import Vue from 'vue';
    
   export default {
  name: 'signinPage',
- props: {
-   ifsuccess: Boolean
- },
  data() {
      return{
-         LoginInfo
+         LoginInfo,
+         isSignedIn:  Vue.prototype.$isSignedIn,
+         
    }
  },
  methods: {
@@ -17,19 +17,26 @@
          const password = document.getElementById("password").value;
          this.LoginInfo.AcceptedLogins.forEach( (item) => {
              if(item.userName == userName && item.password == password) {
-               // <Redirect to="/home" />
-               document.getElementById('valid').style.display = "block";
+               this.$router.push({ name: 'login', query: { redirect: '/home' } });
                document.getElementById('password-error').style.display = "none";
                document.addEventListener('submit');
-               
+               this.isSignedIn = true;
+            
+        
                  return;
              }
          });
         document.getElementById('password-error').style.display = "block";
-        document.getElementById('valid').style.display = "none";
+        
         document.addEventListener('submit');
+     },
+     testfunc: function() {
+        console.log ('är vi inloggade?', this.isSignedIn)
      }
+    
  }
+
+ 
  }
 </script>
 
@@ -41,8 +48,7 @@
         <h1 class="h1">Log in</h1>
             
             <div class="box-1">
-               <div id="password-error" class="invalid"> <small>Wrong password or username, try again</small></div>
-               <div id="valid" class="valid"> <small>sucess</small></div>
+               <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid. Please try again! </small></div>
                <label for="username">Username:</label>
                <input type="text" id="username" name="username">
              
@@ -66,16 +72,18 @@
    
    .my-form {
        display: flex;
-       justify-content: center;
-       
+     justify-content: center;
+        margin-left: 140%;
+        margin-top: 20%;
      
    }
-.valid {
-   display: none;
-}
+
    .invalid  {
       color: red;
-   }
+      margin-top: 1rem;
+   
+   
+      }
    #password-error {
       display: none;
    }
@@ -83,7 +91,7 @@
       text-align: center;
    }
    #btn {
-      margin-top: 1rem;
+   margin-top: 1rem;
    border-radius: 5px;
    height: 40px;
    width: 300px;
@@ -101,7 +109,7 @@
    
    .form {
      padding-top: 30px;
-     padding-bottom: 30px;
+     padding-bottom: 50px;
      padding-left: 50px;
      padding-right: 50px;
      box-shadow: 1px 2px 12px 4px #77515148;

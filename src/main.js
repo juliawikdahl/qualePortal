@@ -5,7 +5,7 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
-
+Vue.prototype.isSignedIn = false;
 
 new Vue({
   router,
