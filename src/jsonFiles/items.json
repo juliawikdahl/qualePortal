@@ -19,6 +19,11 @@
             "Id": 4,
             "Name": "Coconut bun",
             "Description": "Bun with coconut flavor!"
+        },
+        {
+            "Id": 5,
+            "Name": "Irish Coffee",
+            "Description": "Typ av kaffe"
         }
     ]
 }

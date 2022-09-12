@@ -5,12 +5,16 @@
 class="node">
 
 <p class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
+<div v-if="expanded && items.length > 0" :style="'margin-left: 4rem'">
+<p v-for="item in items" :key="item.Name">{{item.Name}}</p>
+</div>
 </div>
 <div v-if="expanded">
   <treeView 
   v-for="child in node.underCategories" 
   :key="child.name" 
   :node ="child"
+
   :depth="depth + 1"
   />
 </div>
@@ -19,6 +23,9 @@ class="node">
 
 
 <script>
+
+
+import itemsJson from '../jsonFiles/items.json'
       export default{
       name: 'treeView',
       props:{
@@ -32,7 +39,27 @@ class="node">
       },
       data(){
         return{
-          expanded: this.shouldBeExpanded
+          expanded: this.shouldBeExpanded,
+          items: [],
+        }
+      },
+      methods: {
+        matchingIds: function() {
+          return itemsJson.Components.filter((item) => {
+            return this.node?.ComponentsIds?.includes(item.Id);
+          });
+        },
+        getItemsFromJson: function() {
+          this.items = this.matchingIds();
+        },
+      },
+        watch: {
+        expanded(isExpanded) {
+          console.log('hej i expanded watchern är den expanderad? :', isExpanded);
+          if (isExpanded) {
+            // hämta items
+            this.getItemsFromJson([]);
+          }
         }
       },
     }
