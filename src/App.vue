@@ -3,17 +3,21 @@ import root from './jsonFiles/categories.json'
 import navbarHeader from './components/navbarHeader.vue'
 import treeView from './components/treeView.vue'
 import footerFooter from './components/footer.vue'
+
   export default {
     name: "App",
     data() {
         return{
-          root   
+
+          root,   
+          
       }
     },
     components: {
     navbarHeader,
     treeView,
     footerFooter
+
 }
 }
   </script>
@@ -28,13 +32,14 @@ import footerFooter from './components/footer.vue'
   <div id="staticView">
     <div >
   <treeView v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
-   </div>
+   </div>  
+ <router-view/>
+ 
    <div></div></div>
-    <div>
+    
+<div>
       <footerFooter/>
   </div>
-  
- <router-view/>
  </div>
 
   </template>
