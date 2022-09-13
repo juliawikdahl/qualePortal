@@ -22,15 +22,15 @@
             "underCategories": [
             {
                 "Name": "Coffee",
-                "ComponentsIds": [5]
+                "ComponentsIds": [5, 6]
             },
             {
                 "Name": "Tea",
-                "ComponentsIds": []
+                "ComponentsIds": [7, 8 ]
             },
             {
                 "Name": "Soda",
-                "ComponentsIds": []
+                "ComponentsIds": [9]
             }
         ]
         }

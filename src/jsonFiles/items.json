@@ -3,27 +3,56 @@
         {
             "Id": 1,
             "Name": "Cinnamon bun",
-            "Description": "Bun with cinnamon flavor!"
+            "Description": "A cinnamon roll consists of a rolled sheet of yeast-leavened dough onto which a cinnamon and sugar mixture is sprinkled over a thin coat of butter. The dough is then rolled, cut into individual portions and baked. The deep fried version is cinnamon roll or cinnamon bun doughnut. Its main ingredients are flour, cinnamon, sugar, and butter, which provide a robust and sweet flavor.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton. 3-6 % Paracetamol, Pregelatiniserad stärkelse, magnesiumstearat; filmdragering: Hypromellos, makrogol, propylenglykol, titandioxid (E171) och talk."
         },
         {
             "Id": 2,
             "Name": "Danish bread coconut",
-            "Description": "Danish bread with coconut flakes ontop"
+            "Description": "Danish bread with coconut flakes ontop.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 3,
             "Name": "Strawberry Cheesecake",
-            "Description": "Cheesecake with strawberries"
+            "Description": "Cheesecake with strawberries.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 4,
             "Name": "Coconut bun",
-            "Description": "Bun with coconut flavor!"
+            "Description": "A cocunut bun consists of a rolled sheet of yeast-leavened dough onto which a cocunuy and sugar mixture is sprinkled over a thin coat of butter. The dough is then rolled, cut into individual portions and baked. Its main ingredients are flour, coconut, sugar, and butter, which provide a robust and sweet flavor.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 5,
             "Name": "Irish Coffee",
-            "Description": "Typ av kaffe"
+            "Description": "Irish whiskey and at least one level teaspoon of sugar are poured over black coffee and stirred in until fully dissolved.[12] Thick cream is carefully poured over the back of a spoon initially held just above the surface of the coffee and gradually raised a little until the entire layer is floated.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 6,
+            "Name": "Black Coffee",
+            "Description": "Black organic coffee from Brazil",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 7,
+            "Name": "Green Tea",
+            "Description": "Green tea is a type of tea that is made from Camellia sinensis leaves and buds that have not undergone the same withering and oxidation process used to make oolong teas and black teas.[1] Green tea originated in China, and since then its production and manufacture has spread to other countries in East Asia.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 8,
+            "Name": "Rooibos",
+            "Description": "The tea has been popular in Southern Africa for generations. The tea has an earthy flavour, similar to yerba mate or tobacco.Rooibos was formerly classified as Psoralea but is now thought to be part of Aspalathus following Dahlgren (1980). The specific name of linearis was given by Burman (1759) for the plant's linear growing structure and needle-like leaves.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 9,
+            "Name": "Coca Cola",
+            "Description": "Coca cola",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         }
     ]
 }
