@@ -27,7 +27,31 @@
         {
             "Id": 5,
             "Name": "Irish Coffee",
-            "Description": "Typ av kaffe.",
+            "Description": "Irish whiskey and at least one level teaspoon of sugar are poured over black coffee and stirred in until fully dissolved.[12] Thick cream is carefully poured over the back of a spoon initially held just above the surface of the coffee and gradually raised a little until the entire layer is floated.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 6,
+            "Name": "Black Coffee",
+            "Description": "Black organic coffee from Brazil",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 7,
+            "Name": "Green Tea",
+            "Description": "Green tea is a type of tea that is made from Camellia sinensis leaves and buds that have not undergone the same withering and oxidation process used to make oolong teas and black teas.[1] Green tea originated in China, and since then its production and manufacture has spread to other countries in East Asia.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 8,
+            "Name": "Rooibos",
+            "Description": "The tea has been popular in Southern Africa for generations. The tea has an earthy flavour, similar to yerba mate or tobacco.Rooibos was formerly classified as Psoralea but is now thought to be part of Aspalathus following Dahlgren (1980). The specific name of linearis was given by Burman (1759) for the plant's linear growing structure and needle-like leaves.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
+        },
+        {
+            "Id": 9,
+            "Name": "Coca Cola",
+            "Description": "Coca cola",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         }
     ]

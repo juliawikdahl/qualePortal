@@ -4,7 +4,7 @@
        <div class="itemName">{{item.Name}}</div>
    
         <div class="itemDes">{{item.Description}}</div>
-      <div><div class="codeTitle">Json <button  class="btn1">Xaml</button>,  <button class="btn2">Kopiera</button></div> <div class="itemIndex">{{item.Index}}</div></div>   
+      <div><div class="codeTitle">Json <button  class="btn1">Xaml</button><button class="btn2">Copy</button></div> <div class="itemIndex">{{item.Index}}</div></div>   
     
     </div>
   
@@ -63,6 +63,8 @@
  border: 1px solid rgb(147, 169, 182);
 }
 .btn1{
-margin-left: 67rem;
+margin-left: 68rem;
+margin-right: 0.7rem;
 }
+
 </style>
