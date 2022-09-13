@@ -6,40 +6,31 @@
  name: 'signinPage',
  data() {
      return{
-         LoginInfo,
-         isSignedIn:  Vue.prototype.$isSignedIn,
-         
+        username: '',
+        password: '',
+        LoginInfo,
+        isSignedIn:  Vue.prototype.$isSignedIn  
    }
  },
  methods: {
      HandleSignIn: function() {
-         const userName = document.getElementById("username").value;
-         const password = document.getElementById("password").value;
          this.LoginInfo.AcceptedLogins.forEach( (item) => {
-             if(item.userName == userName && item.password == password) {
-               this.$router.push({ name: 'login', query: { redirect: '/home' } });
+             if(item.userName == this.username && item.password == this.password) {
+               this.$router.push({ name: 'home' });
                document.getElementById('password-error').style.display = "none";
-               document.addEventListener('submit');
-               this.isSignedIn = true;
-            
-        
+               Vue.prototype.$isSignedIn = true;
+               console.log(Vue.prototype.$isSignedIn);
                  return;
              }
          });
         document.getElementById('password-error').style.display = "block";
-        
-        document.addEventListener('submit');
      },
-     testfunc: function() {
-        console.log ('är vi inloggade?', this.isSignedIn)
-     }
-    
+   
  }
 
  
  }
 </script>
-
 
 
 <template>
@@ -50,18 +41,18 @@
             <div class="box-1">
                <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid. Please try again! </small></div>
                <label for="username">Username:</label>
-               <input type="text" id="username" name="username">
+               <input v-model="username" type="text" id="username" name="username">
              
             </div>
 
             <div class="box-1">
                <label for="pass">Password:</label>
-                  <input type="password" id="password" name="password" minlength="8" required>
-                  
+                  <input v-model="password" type="password" id="password" name="password"  minlength="8" required>
+                  <!-- @keyup.enter="HandleSignIn()" -->
             </div>
             
             
-             <button id="btn" type="submit" @click="HandleSignIn()" >Log in</button>
+             <button id="btn" type="submit" @click="HandleSignIn()">Log in</button>
             
     
     </div>

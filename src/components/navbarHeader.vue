@@ -1,6 +1,7 @@
 <script>
     import searchBar from './searchBar.vue';
     import loginButton from './loginButton.vue';
+    import addButton from './addButton.vue';
     
 export default {
         name : 'navbarHeader',
@@ -9,8 +10,8 @@ export default {
         },
         components: {
     searchBar,
-    loginButton
-  
+    loginButton,
+    addButton
 }
     }
 </script>
@@ -21,6 +22,7 @@ export default {
         <v-img class="logo" :src="logo" /> 
     <searchBar /> 
     <loginButton/>
+    <addButton/>
     
     </div>
 
