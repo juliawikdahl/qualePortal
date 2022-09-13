@@ -1,17 +1,36 @@
 <script>
+import Vue from 'vue';
+
     
     export default{
           name: 'loginButton',
-          
+          methods: {
+            getSigninText: function() {
+                console.log('inhere?')
+                return Vue.prototype.$isSignedIn ? 'Logout' : 'Login';
+            }
+        },
+        data() {
+            return {
+            loggedIn: Vue.prototype.$isSignedIn
+            }
+        },
+        watch: {
+            'Vue.prototype.$isSignedIn': function() {
+                console.log('hej');
+            }
+        },
+        mounted() {
+            this.getSigninText();
+        },
+    
       }
-            
-        
     
     </script>
 
 <template>
 
-    <router-link :to="{ path: '/login' }"> <button class="btn">{{isSignedIn ? 'log out': 'Log in'}}</button></router-link>
+    <router-link :to="{ path: '/login' }"> <button class="btn">{{getSigninText()}}</button></router-link>
 </template>
 
 <style>

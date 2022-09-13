@@ -7,6 +7,10 @@
         {
             "userName": "Admin@hotmail.com",
             "password": "admin1"
+        },
+        {
+            "userName": "1",
+            "password": "1"
         }
     ]
 }
