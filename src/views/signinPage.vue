@@ -1,139 +1,19 @@
 <script>
-   import LoginInfo from '../jsonFiles/signin.json'
-   import Vue from 'vue';
-   
-  export default {
- name: 'signinPage',
- data() {
-     return{
-        username: '',
-        password: '',
-        LoginInfo,
-        isSignedIn:  Vue.prototype.$isSignedIn  
-   }
- },
- methods: {
-     HandleSignIn: function() {
-         this.LoginInfo.AcceptedLogins.forEach( (item) => {
-             if(item.userName == this.username && item.password == this.password) {
-               this.$router.push({ name: 'home' });
-               document.getElementById('password-error').style.display = "none";
-               Vue.prototype.$isSignedIn = true;
-               console.log(Vue.prototype.$isSignedIn);
-                 return;
-             }
-         });
-        document.getElementById('password-error').style.display = "block";
-     },
-   
- }
+import SigninComponent from '../components/signinComponent.vue'
 
- 
- }
-</script>
-
+    
+    export default{
+          name: "signinPage",
+          components: {
+    SigninComponent
+}
+      }
+            
+    
+    </script>
 
 <template>
-   <div class="my-form ">
- <div class="form">
-        <h1 class="h1">Log in</h1>
-            
-            <div class="box-1">
-               <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid. Please try again! </small></div>
-               <label for="username">Username:</label>
-               <input v-model="username" type="text" id="username" name="username">
-             
-            </div>
-
-            <div class="box-1">
-               <label for="pass">Password:</label>
-                  <input v-model="password" type="password" id="password" name="password"  minlength="8" required>
-                  <!-- @keyup.enter="HandleSignIn()" -->
-            </div>
-            
-            
-             <button id="btn" type="submit" @click="HandleSignIn()">Log in</button>
-            
-    
+    <div> 
+       <SigninComponent/>
     </div>
-</div>
 </template>
-
-<style scoped>
-   
-   .my-form {
-       display: flex;
-     justify-content: center;
-        margin-left: 140%;
-        margin-top: 20%;
-     
-   }
-
-   .invalid  {
-      color: red;
-      margin-top: 1rem;
-   
-   
-      }
-   #password-error {
-      display: none;
-   }
-   .h1 {
-      text-align: center;
-   }
-   #btn {
-   margin-top: 1rem;
-   border-radius: 5px;
-   height: 40px;
-   width: 300px;
-   cursor: pointer;
-   border: 1px solid;
-   background-color: rgba(15, 15, 15, 0.867);
-       color: white;
-   
-   }
-   #btn:hover {
-       background-color: white;
-       color: black;
-       
-   }
-   
-   .form {
-     padding-top: 30px;
-     padding-bottom: 50px;
-     padding-left: 50px;
-     padding-right: 50px;
-     box-shadow: 1px 2px 12px 4px #77515148;
-    
-   }
-   
-   /* .form-control {
-       width: 290px;
-       height: 30px;
-       border-radius: 5px;
-       
-   } */
-   
-   .box-1 {
-       margin-bottom: 15px;
-   }
-   label {
-    display: block;
-    font: .9rem 'Fira Sans', sans-serif;
-    margin-bottom: 0.4rem;
-
-}
-
-input {
-   border: 1px solid;
-   height: 2rem;
-   width: 100%;
-   
-}
-   input[type='submit'],
-   label {
-    
-    margin-top: 1rem;
-}
-
-   </style>

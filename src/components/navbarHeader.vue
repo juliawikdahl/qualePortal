@@ -1,7 +1,8 @@
 <script>
     import searchBar from './searchBar.vue';
-    import loginButton from './loginButton.vue';
     import addButton from './addButton.vue';
+   
+import SigninPage from '@/views/signinPage.vue';
     
 export default {
         name : 'navbarHeader',
@@ -10,18 +11,19 @@ export default {
         },
         components: {
     searchBar,
-    loginButton,
-    addButton
+    addButton,
+    SigninPage
+},
 }
-    }
 </script>
+
 
 
 <template>
      <div class="Navbar">
         <v-img class="logo" :src="logo" /> 
     <searchBar /> 
-    <loginButton/>
+   <SigninPage/>
     <addButton/>
     
     </div>
@@ -47,5 +49,27 @@ export default {
     max-height: 150px;
 max-width: 200px;
 }
+.btn {
+ 
+ height: 52px;
+ min-width: 100px;
+ color: black;
+ border-radius: 25px;
+ padding: 1rem 2rem;
+ margin-top: 30px;
+ background-color: white;
+ text-align: center;
+ -webkit-transition: all 0.7s ease;
+ transition: all 0.7s ease;
+ border: transparent;
+ margin-left: 150px;
+ cursor: pointer;
+ 
+ }
 
+.btn:hover {
+box-shadow: 0 0 8px rgb(152, 150, 150);
+padding: 10px 45px;
+text-align: center;
+}
 </style>
