@@ -1,8 +1,7 @@
 <script>
     import searchBar from './searchBar.vue';
     import addButton from './addButton.vue';
-   
-import SigninPage from '@/views/signinPage.vue';
+import SigninComponent from './signinComponent.vue';
     
 export default {
         name : 'navbarHeader',
@@ -12,7 +11,7 @@ export default {
         components: {
     searchBar,
     addButton,
-    SigninPage
+    SigninComponent
 },
 }
 </script>
@@ -23,7 +22,7 @@ export default {
      <div class="Navbar">
         <v-img class="logo" :src="logo" /> 
     <searchBar /> 
-   <SigninPage/>
+   <SigninComponent/>
     <addButton/>
     
     </div>

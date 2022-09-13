@@ -11,14 +11,16 @@
       HandleSignIn: function() {
           this.LoginInfo.AcceptedLogins.forEach( (item) => {
               if(item.userName == this.username && item.password == this.password) {
-                //  this.$router.push({ name: 'home' });
+                 this.$router.push({ name: 'home' });
                 document.getElementById('password-error').style.display = "none";
                 this.loggedIn = true;
                 this.dialog = false;
                   return;
+              }else {
+                 document.getElementById('password-error').style.display = "block";
               }
           });
-         document.getElementById('password-error').style.display = "block";
+        
       },
     
   },
@@ -39,7 +41,7 @@ return {
  
  <template>
  <div>
-     <button @click="dialog = true" class="login">{{getSigninText()}}</button>
+     <button @click="dialog = true" class="btn">{{getSigninText()}}</button>
  
     <div class="my-form " v-if="dialog">
   <div class="form">
@@ -74,9 +76,8 @@ return {
     .my-form {
         display: flex;
       justify-content: center;
-         margin-left: 20%;
-         margin-top: 5%;
       
+         
     }
  
     .invalid  {
@@ -117,9 +118,8 @@ return {
    border: transparent;
    margin-left: 150px;
    cursor: pointer;
-   position: absolute;
-   margin-top: -100px;
-   margin-left: -200px;
+
+   
    }
     #btn:hover {
         background-color: white;
