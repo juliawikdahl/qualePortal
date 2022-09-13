@@ -3,27 +3,32 @@
         {
             "Id": 1,
             "Name": "Cinnamon bun",
-            "Description": "Bun with cinnamon flavor!"
+            "Description": "A cinnamon roll consists of a rolled sheet of yeast-leavened dough onto which a cinnamon and sugar mixture is sprinkled over a thin coat of butter. The dough is then rolled, cut into individual portions and baked. The deep fried version is cinnamon roll or cinnamon bun doughnut. Its main ingredients are flour, cinnamon, sugar, and butter, which provide a robust and sweet flavor.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton. 3-6 % Paracetamol, Pregelatiniserad stärkelse, magnesiumstearat; filmdragering: Hypromellos, makrogol, propylenglykol, titandioxid (E171) och talk."
         },
         {
             "Id": 2,
             "Name": "Danish bread coconut",
-            "Description": "Danish bread with coconut flakes ontop"
+            "Description": "Danish bread with coconut flakes ontop.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 3,
             "Name": "Strawberry Cheesecake",
-            "Description": "Cheesecake with strawberries"
+            "Description": "Cheesecake with strawberries.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 4,
             "Name": "Coconut bun",
-            "Description": "Bun with coconut flavor!"
+            "Description": "A cocunut bun consists of a rolled sheet of yeast-leavened dough onto which a cocunuy and sugar mixture is sprinkled over a thin coat of butter. The dough is then rolled, cut into individual portions and baked. Its main ingredients are flour, coconut, sugar, and butter, which provide a robust and sweet flavor.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         },
         {
             "Id": 5,
             "Name": "Irish Coffee",
-            "Description": "Typ av kaffe"
+            "Description": "Typ av kaffe.",
+            "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton."
         }
     ]
 }
