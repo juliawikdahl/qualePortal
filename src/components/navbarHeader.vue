@@ -1,6 +1,6 @@
 <script>
     import searchBar from './searchBar.vue';
-    import addButton from './addButton.vue';
+    // import addButton from './addButton.vue';
 import SigninComponent from './signinComponent.vue';
     
 export default {
@@ -10,20 +10,18 @@ export default {
         },
         components: {
     searchBar,
-    addButton,
+    // addButton,
     SigninComponent
 },
 }
 </script>
-
-
 
 <template>
      <div class="Navbar">
         <v-img class="logo" :src="logo" /> 
     <searchBar /> 
    <SigninComponent/>
-    <addButton/>
+    <!-- <addButton/> -->
     
     </div>
 

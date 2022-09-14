@@ -8,26 +8,34 @@
     getSigninText: function() {
         return this.loggedIn ? 'Logout' : 'Login';
     },
-      HandleSignIn: function() {
+    handleLoginButton: function() {
+        this.showLoginForm = this.loggedIn ? false : true
+        if(this.loggedIn) {
+            this.loggedIn = false;
+            this.$router.push({ name: 'home' });''
+        }
+    },
+      handleSignIn: function() {
+        if(!this.loggedIn) {
           this.LoginInfo.AcceptedLogins.forEach( (item) => {
               if(item.userName == this.username && item.password == this.password) {
                  this.$router.push({ name: 'home' });
                 document.getElementById('password-error').style.display = "none";
                 this.loggedIn = true;
-                this.dialog = false;
+                this.showLoginForm = false;
                   return;
               }else {
                  document.getElementById('password-error').style.display = "block";
               }
           });
-        
+        }
       },
-    
   },
  data() {
 return {
     loggedIn: false,
-    dialog: false,
+    showLoginForm: false,
+    add: false,
     username: '',
     password: '',
     LoginInfo,
@@ -41,14 +49,23 @@ return {
  
  <template>
  <div>
-     <button @click="dialog = true" class="btn">{{getSigninText()}}</button>
- 
-    <div class="my-form " v-if="dialog">
+    <router-link :to="{ path: '/login' }">
+     <button @click="handleLoginButton()" class="btn">{{getSigninText()}}</button>
+     </router-link>
+     
+    <div v-if="loggedIn">
+     <button  id ="btn-add" class="btn-add ">Add</button>
+     <v-icon class="add">mdi-plus-circle-outline </v-icon>
+    </div>
+
+
+
+    <div v-on:keyup.enter="handleSignIn()" class="my-form " v-if="showLoginForm">
   <div class="form">
          <h1 class="h1">Log in</h1>
          
              <div class="box-1">
-                <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid. Please try again! </small></div>
+                <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid.<br> Please try again! </small></div>
                 <label for="username">Username:</label>
                 <input v-model="username" type="text" id="username" name="username">
               
@@ -57,11 +74,10 @@ return {
              <div class="box-1">
                 <label for="pass">Password:</label>
                    <input v-model="password" type="password" id="password" name="password"  minlength="8" required>
-                   <!-- @keyup.enter="HandleSignIn()" -->
              </div>
              
              
-              <button id="btn" type="submit" @click="HandleSignIn()">Log in</button>
+              <button id="btn" type="submit" @click="handleSignIn()">Log in</button>
              
    
      
@@ -72,14 +88,20 @@ return {
  </template>
  
  <style scoped>
-    
     .my-form {
         display: flex;
       justify-content: center;
-      
-         
+      position: absolute;
+      /* position: fixed; */
+      margin-top: 6rem;
+      margin-left: -25rem;
+    
     }
- 
+    .add {
+    position: absolute;
+    margin-left: 0.4rem;
+    margin-top: 2.7rem;
+    }
     .invalid  {
        color: red;
        margin-top: 1rem;
@@ -100,12 +122,12 @@ return {
     cursor: pointer;
     border: 1px solid;
     background-color: rgba(15, 15, 15, 0.867);
-        color: white;
+    color: white;
     
     }
 
     .login {
-    height: 52px;
+        height: 52px;
    min-width: 100px;
    color: black;
    border-radius: 25px;
@@ -119,7 +141,24 @@ return {
    margin-left: 150px;
    cursor: pointer;
 
-   
+   }
+   .btn-add {
+    height: 52px;
+   min-width: 100px;
+   color: black;
+   border-radius: 25px;
+   padding: 1rem 2rem;
+   padding-right: 3rem;
+   margin-top: 30px;
+   margin-right: -3rem;
+   margin-left: 3rem;
+   background-color: white;
+   text-align: center;
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
+   border: transparent;
+   cursor: pointer;
+    
    }
     #btn:hover {
         background-color: white;
@@ -128,6 +167,7 @@ return {
     }
     
     .form {
+      color: black;
       padding-top: 30px;
       padding-bottom: 50px;
       padding-left: 50px;
