@@ -1,15 +1,12 @@
 <template>
 <div>
-    <div class="itemCards"  v-for="item in itemss.Components" :key="item.Id">
-       <div class="itemName">{{item.Name}}</div>
+    <div class="itemCards">  <button  class="btnGit">Git</button><button class="btnEdit">Edit</button>
+       <div class="itemName">{{selectedItem.Name}}  </div>
    
-        <div class="itemDes">{{item.Description}}</div>
-      <div><div class="codeTitle">Json <button  class="btn1">Xaml</button><button class="btn2">Copy</button></div> <div class="itemIndex">{{item.Index}}</div></div>   
+        <div class="itemDes">{{selectedItem.Description}}</div>
+      <div><div class="codeTitle">Json <button  class="btnConvert">Xaml</button><button class="btnCopy">Copy</button></div> <div class="itemIndex">{{selectedItem.Index}}</div></div>   
     
     </div>
-  
-<!-- <textarea v-model="items.name"></textarea>  -->
-
 </div>
 
 </template>
@@ -18,15 +15,32 @@
    import itemsJson from '../jsonFiles/items.json'
     export default{
           name: "itemComponent",
-              
+      mounted() {
+        this.getItemById(this.$route.params.id);
+      },
       data() {
         return{
-          itemss: itemsJson
+          items: itemsJson.Components,
+          selectedItem: {}
       }
-    },
-        
-  
-} 
+    },        
+      watch: {
+        '$route.params.id': function() {  
+          this.getItemById(this.$route.params.id);
+        }
+      },
+      methods: {
+        getItemById(id) {
+          const item = this.items.filter(item => item.Id == id);
+          if(item.length == 0) {
+            // 404 error page
+            console.log('Error');
+            return;
+          }
+          this.selectedItem = item[0];
+        }
+      }
+    }
     </script>
 <style>
 .itemCards{
@@ -62,9 +76,15 @@
     min-width: 30rem;
  border: 1px solid rgb(147, 169, 182);
 }
-.btn1{
+.btnConvert{
 margin-left: 68rem;
 margin-right: 0.7rem;
 }
+.btnGit{
+margin-left: 72rem;
+margin-right: 0.7rem;
+}
+
+
 
 </style>
