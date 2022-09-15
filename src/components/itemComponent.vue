@@ -65,17 +65,18 @@
 }
 .itemDes{
     
-  
+  max-width: 70rem;
  margin-bottom: 1rem;
 }
 .itemIndex{
+  max-width: 75rem;
     padding: 1rem;
     border-radius: 5px;
     background-color: rgb(182, 209, 224);
     
     
     min-height: 10rem;
-    min-width: 30rem;
+    min-width: 35rem;
   margin-bottom: 0.3rem;
 }
 .codeTitle{
