@@ -52,41 +52,37 @@ import addButton from './addButton.vue';
  
  <template>
  <div>
-    <router-link :to="{ path: '/login' }">
+    <div style="display: flex;">
+        <router-link :to="{ path: '/login' }">
      <button @click="handleLoginButton()" class="btn">{{getSigninText()}}</button>
      </router-link>
      
      <addButton v-if ="loggedIn" />
+    </div>
+    
 
-    <!-- <div v-if="loggedIn">
-     <button  id ="btn-add" class="btn-add ">Add</button>
-     <v-icon class="add">mdi-plus-circle-outline </v-icon>
-    </div> -->
-
-
-
-    <div v-on:keyup.enter="handleSignIn()" class="my-form " v-if="showLoginForm">
-  <div class="form">
-         <h1 class="h1">Log in</h1>
-         
-             <div class="box-1">
-                <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid.<br> Please try again! </small></div>
-                <label for="username">Username:</label>
-                <input v-model="username" type="text" id="username" name="username">
-              
-             </div>
- 
-             <div class="box-1">
-                <label for="pass">Password:</label>
-                   <input v-model="password" type="password" id="password" name="password"  minlength="8" required>
-             </div>
-             
-             
-              <button id="btn" type="submit" @click="handleSignIn()">Log in</button>
-             
+<div v-on:keyup.enter="handleSignIn()" class="my-form " v-if="showLoginForm">
+       <div class="form">
+            <h1 class="h1">Log in</h1>
+            
+                <div class="box-1">
+                    <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid.<br> Please try again! </small></div>
+                    <label for="username">Username:</label>
+                    <input v-model="username" type="text" id="username" name="username">
+                
+                </div>
+    
+                <div class="box-1">
+                    <label for="pass">Password:</label>
+                    <input v-model="password" type="password" id="password" name="password"  minlength="8" required>
+                </div>
+                
+                
+                <button id="btn" type="submit" @click="handleSignIn()">Log in</button>
+                
    
      
-     </div>
+        </div>
  </div>
 
 </div>
@@ -97,7 +93,7 @@ import addButton from './addButton.vue';
         display: flex;
       justify-content: center;
       position: absolute;
-      /* position: fixed; */
+      position: fixed;
       margin-top: 6rem;
       margin-left: -25rem;
     
@@ -131,8 +127,8 @@ import addButton from './addButton.vue';
     
     }
 
-    .login {
-        height: 52px;
+    /* .login {
+   height: 52px;
    min-width: 100px;
    color: black;
    border-radius: 25px;
@@ -146,7 +142,7 @@ import addButton from './addButton.vue';
    margin-left: 150px;
    cursor: pointer;
 
-   }
+   } */
    .btn-add {
     height: 52px;
    min-width: 100px;
@@ -181,12 +177,7 @@ import addButton from './addButton.vue';
      
     }
     
-    /* .form-control {
-        width: 290px;
-        height: 30px;
-        border-radius: 5px;
-        
-    } */
+
     
     .box-1 {
         margin-bottom: 15px;

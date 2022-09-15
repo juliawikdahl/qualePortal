@@ -1,6 +1,5 @@
 <script>
     import searchBar from './searchBar.vue';
-    // import addButton from './addButton.vue';
 import SigninComponent from './signinComponent.vue';
     
 export default {
@@ -10,7 +9,6 @@ export default {
         },
         components: {
     searchBar,
-    // addButton,
     SigninComponent
 },
 }
@@ -19,10 +17,8 @@ export default {
 <template>
      <div class="Navbar">
         <v-img class="logo" :src="logo" /> 
-    <searchBar /> 
-   <SigninComponent/>
-    <!-- <addButton/> -->
-    
+         <searchBar /> 
+        <SigninComponent/>   
     </div>
 
 </template>
@@ -48,25 +44,21 @@ max-width: 200px;
 }
 .btn {
  
- height: 52px;
- min-width: 100px;
  color: black;
  border-radius: 25px;
+ margin-left: 14rem;
  padding: 1rem 2rem;
  margin-top: 30px;
  background-color: white;
- text-align: center;
  -webkit-transition: all 0.7s ease;
  transition: all 0.7s ease;
- border: transparent;
- margin-left: 150px;
  cursor: pointer;
  
  }
 
 .btn:hover {
 box-shadow: 0 0 8px rgb(152, 150, 150);
-padding: 10px 45px;
+padding: 18px 40px;
 text-align: center;
 }
 </style>

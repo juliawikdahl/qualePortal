@@ -5,15 +5,11 @@
 
       data() {
       return {
-        showModal:false
+        showModal:false,
+        items: ['foo', 'bar', 'fizz', 'buzz'],
+        value: ['foo', 'bar', 'fizz', 'buzz'],
       }
     },
-//       methods: {
-//       close() {
-//         this.$emit('edit-modal')
-//       }
-//     }
- 
 }
  
 </script>
@@ -21,108 +17,178 @@
 <template>
 <div>
       <div class="modal-overlay" v-if="showModal" @click="showModal =false"></div>
-    <div class="code"> 
-       <div>
-        <div>
- 
-            <div>
-                   <button  @click ="showModal = true" id ="btn-add" class="btn-add ">Add</button>
-                   <v-icon class="add">mdi-plus-circle-outline </v-icon>
-    
-            </div>
-     
-         <!-- <transition-group name ="fade" appear>
-          
-          </transition-group>  -->
-
-          <transition-group name="slide" appear>
-            
-            <div class="modal" v-if="showModal"> 
-            
-                  <p class="names">Category</p>
-                <input class="form3" type="title" placeholder=[[hej]] /> 
-              <p class="names">Under-Category</p>
-              
-              <input class="form2" type="text" placeholder="Search.."/>
-              <p class="names">Title</p>
-              <input class="form2" type="text" placeholder="Search.."/>
-              <p class="names">Beskrivning</p>
-              <input class="form2" type="text" placeholder="Search.."/>
-              <p class="names">Code</p>
-              <input class="form2" type="text" placeholder="Search.."/>
-              <v-text-field> hej</v-text-field>
-              <button class="form2" @click="showModal =false" >Add</button>
+      
+              <v-btn
+                  @click ="showModal = true"
+                    class="btn-add"
+                    outlined
+                    large
+                    fab
+                    color="indigo"
+                  >
+                    <v-icon>mdi-plus</v-icon>
+              </v-btn>
+                
            
+    <div class="modal" v-if="showModal"> 
+
+              <div>
+                <v-container fluid>
+                  <v-row align="center" >
+                    <v-col cols="12" sm="6" >
+                      <v-select
+                        :items="items"
+                        attach
+                        chips
+                        label="Category"
+                        multiple
+                      > </v-select>
+                    </v-col>
+
+                    <v-col cols="12" sm="6" >
+                      <v-select
+                        :items="items"
+                        attach
+                        chips
+                        label="Under Cateogry"
+                        multiple
+                      > </v-select>
+                    </v-col>
+
+                    
+                  </v-row>
+                </v-container>
+   
               </div>
-              
 
-          </transition-group>
+        <div class="add-form">
+                <v-form>
+                      <v-container>
+                        <v-row>
+                          <v-col
+                            cols="12"
+                            sm="6"
+                          >
+                            <v-text-field
+                              v-model="title"
+                              :rules="rules"
+                              counter="25"
+                              hint="This field uses counter prop"
+                              label="Title"
+                            ></v-text-field>
+                          </v-col>
 
-       
+                          <input class="url" type="url" placeholder="Git url.." />
+                        </v-row>
+                      </v-container>
+                    </v-form>
 
-       </div>
-       
-       </div>
+                 <div class="des">
+                        <v-col
+                              cols="12"
+                              sm="6"
+                            >
+                              <v-textarea
+                                auto-grow
+                                label="Description"
+                                rows="3"
+                                row-height="20"
+                              ></v-textarea>
+                          </v-col>
+                  </div>
+             
+                  <v-container fluid>
+                      <v-textarea
+                        autocomplete="Code"
+                        label="Code"
+                      ></v-textarea>
+                </v-container>
+
+                 <button class="add-button" @click="showModal =false" >Add</button>
+            
+         </div>
+           
+        
     </div>
+              
     
    
 </div>
 
 </template>
 
-<style>
-
-.code {
-    display: flex;
+<style scoped>
+.add-button {
+  display: flex;
     justify-content: center;
-    position: relative;
-   }
-   .form3 {
-    /* margin-top: 100px; */
-    margin-bottom: 8px;
-    width: 300px;
-    /* margin-left: 100px;
-    margin-right: 100px; */
-    height: 30px;
-   }
-   .form2 {
+    border: 1px solid;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    margin: auto;
+    cursor: pointer;
+    background-color: rgba(15, 15, 15, 0.867);
+    color: white;
+    border-radius: 5px;
+}
 
-    margin-bottom: 8px;
-    width: 300px;
-    /* margin-left: 100px;
-    margin-right: 100px; */
-    height: 30px;
+.add-button:hover {
+  background-color: white;
+        color: black;
+}
+.inputs {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.title{
+  margin-right: 3rem;
+  width: 200px;
+}
+.code {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+.url {
+    height: 40px;
+    width: 330px;
+    margin-top: 1.4rem;
+    margin-left: 0.8rem;
+    border-bottom: 1px solid rgb(138, 137, 137);
+    padding-left: 0.5rem;
+}
+.des {
+  display: flex;
+}
 
-   }
-   .names {
-    /* margin-left: 100px; */
-   }
+  
    .btn-add {
-    height: 52px;
-   min-width: 100px;
-   color: black;
-   border-radius: 25px;
-   padding: 1rem 2rem;
-   padding-right: 3rem;
-   background-color: white;
-   text-align: center;
+    padding: 2rem;
+   color: white;
+   border-radius: 50%;
    -webkit-transition: all 0.7s ease;
    transition: all 0.7s ease;
-   border: transparent;
    cursor: pointer;
+   margin-top: 20px;
+   margin-left: 2rem;
+   
     
    }
 
 .btn-add:hover {
 box-shadow: 0 0 8px rgb(152, 150, 150);
-padding: 10px 45px;
+padding:  37px;
 text-align: center;
 }
 
 .add {
     position: absolute;
-    /* margin-left: 0.4rem;
-    margin-top: 2.7rem; */
+     margin-left: 0.4rem; 
+    margin-top: 2.7rem; 
     }
 
     .modal-overlay {
@@ -136,17 +202,17 @@ text-align: center;
     }
 
     .modal {
-    position: fixed;
-    margin-top: 440px;
+      position: fixed;
+    padding: 3rem;
     left: 80%;
-    margin-left: -150px;
-    transform: translate(-100%, -100%);
+    transform: translate(-100%, -10%);
     z-index: 99;
     max-width: 1000px;
-    height: 450px;
+    height: 500px;
+    width: 800px;
     display: table;
-
-    background-color: rgb(233, 243, 238);
+    color: black;
+    background-color: rgb(255, 255, 255);
 
 
    }
@@ -157,25 +223,6 @@ text-align: center;
      display: block;
     cursor: pointer ;
    }
-
-   .fade-enter-active,
-   .fade-leave-active {
-    transition: opacity 0.2s;
-   }
-
-   .fade-enter,
-   .fade-leave-to {
-    opacity: 0;
-   }
-   .slide-enter-active,
-   .slide-leave-active {
-    transition: opacity 0.2s;
-   }
-
-   .slide-enter,
-   .slide-leave-to {
-    transform: translateY(-50%) translateX(100vw);
-   } 
 
 
 </style>
