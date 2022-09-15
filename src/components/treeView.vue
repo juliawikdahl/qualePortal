@@ -5,8 +5,8 @@ class="node">
 
 
 <p @click="expanded = !expanded" class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
-<div v-if="expanded && items.length > 0" :style="'margin-left: 4rem'">
-<p @click="goToItem(item)" v-for="item in items" :key="item.Name">{{item.Name}}</p>
+<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'">
+<p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}}</p>
 </div>
 </div>
 <div v-if="expanded">
@@ -45,7 +45,9 @@ import itemsJson from '../jsonFiles/items.json'
         }
       },
       methods: {
-        
+        goToItem: function(item) {
+          this.$router.push({ name: 'item', params: { id: item.Id } });
+        },
         matchingIds: function() {
           return itemsJson.Components.filter((item) => {
             return this.node?.ComponentsIds?.includes(item.Id);
@@ -98,5 +100,7 @@ import itemsJson from '../jsonFiles/items.json'
 
 
  }
-
+.Rooibos{
+  
+}
 </style>

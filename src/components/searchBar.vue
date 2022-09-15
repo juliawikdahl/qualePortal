@@ -2,10 +2,13 @@
     
     export default{
           name: 'searchBar',
-      }
-            
+      
+      methods: {
+        goToItem: function(item) {
+          this.$router.push({ name: 'item', params: { id: item.Id } });
+        },  
         
-    
+      }}
     </script>
 
 
@@ -16,7 +19,7 @@
              <input class="searchbar"   type="text" placeholder="Search.. "  />
              <v-icon class="search">mdi-magnify</v-icon>
              
-    
+           
              
         </div>
        

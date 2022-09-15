@@ -6,7 +6,6 @@
           name: "itemPage",
           components: {
           itemComponent
-   
 }
       }
             

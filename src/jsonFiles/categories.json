@@ -9,24 +9,42 @@
             },
             {
                 "Name": "Danish breads",
-                "ComponentsIds": [2]
+                "ComponentsIds": [2, 10]
             },
             {
                 "Name": "Cheesecakes",
-                "ComponentsIds": [3]
+                "ComponentsIds": [3, 10]
             }
         ]
         },
         {
-        "name": "Drinks",
+            "name": "Hot Drinks",
             "underCategories": [
             {
                 "Name": "Coffee",
-                "ComponentsIds": [5, 6]
+                "ComponentsIds": [5]
             },
             {
                 "Name": "Tea",
-                "ComponentsIds": [7, 8 ]
+                "ComponentsIds": [8 ]
+            },
+            {
+                "Name": "Hot Chocolate",
+                "ComponentsIds": []
+            }
+    
+        ]
+    },
+        {
+        "name": "Cold Drinks",
+            "underCategories": [
+            {
+                "Name": "Ice Coffee",
+                "ComponentsIds": [6]
+            },
+            {
+                "Name": "Ice Tea",
+                "ComponentsIds": [7 ]
             },
             {
                 "Name": "Soda",
@@ -34,6 +52,7 @@
             }
         ]
         }
+       
     ]
 
 }
