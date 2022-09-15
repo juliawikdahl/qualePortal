@@ -66,7 +66,7 @@ import addButton from './addButton.vue';
             <h1 class="h1">Log in</h1>
             
                 <div class="box-1">
-                    <div id="password-error" class="invalid"> <small>The username or password you have entered is invalid.<br> Please try again! </small></div>
+                    <div id="password-error" class="invalid"> <small>The username or password you have entered is <br> invalid. Please try again! </small></div>
                     <label for="username">Username:</label>
                     <input v-model="username" type="text" id="username" name="username">
                 
@@ -90,12 +90,11 @@ import addButton from './addButton.vue';
  
  <style scoped>
     .my-form {
-        display: flex;
-      justify-content: center;
-      position: absolute;
-      position: fixed;
-      margin-top: 6rem;
-      margin-left: -25rem;
+     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    display: table;
     
     }
     .add {

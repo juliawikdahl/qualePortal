@@ -86,7 +86,7 @@
                  <div class="des">
                         <v-col
                               cols="12"
-                              sm="6"
+                              sm="12"
                             >
                               <v-textarea
                                 auto-grow
