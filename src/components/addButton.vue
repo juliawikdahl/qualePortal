@@ -202,10 +202,11 @@ text-align: center;
     }
 
     .modal {
-      position: fixed;
+    position: fixed;
     padding: 3rem;
-    left: 80%;
-    transform: translate(-100%, -10%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 99;
     max-width: 1000px;
     height: 500px;
