@@ -1,10 +1,10 @@
 <template>
 <div>
-    <div class="itemCards">  <button  class="btnGit">Git</button><button class="btnEdit">Edit</button>
-       <div class="itemName">{{selectedItem.Name}}  </div>
+    <div class="itemCards">  <button  class="btnGit">Git</button><button class="btnEdit">Edit</button> 
+       <div class="itemName" @click="Consoletest()">{{selectedItem.Name}}  </div>
    
         <div class="itemDes">{{selectedItem.Description}}</div>
-      <div><div class="codeTitle">Json <button  class="btnConvert">Xaml</button><button class="btnCopy">Copy</button></div> <div class="itemIndex">{{selectedItem.Index}}</div></div>   
+      <div><div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> <div class="itemIndex">{{selectedItem.Index}}</div></div>   
     
     </div>
 </div>
@@ -13,6 +13,7 @@
 
 <script>
    import itemsJson from '../jsonFiles/items.json'
+   
     export default{
           name: "itemComponent",
       mounted() {
@@ -38,15 +39,22 @@
             return;
           }
           this.selectedItem = item[0];
-        }
+        }, 
+       copyToClipboard: function(){
+        navigator.clipboard.writeText(this.selectedItem.Index)
+
+       },
+       Consoletest() {
+           console.log(this.selectedItem.Name)
+       }
       }
     }
     </script>
 <style>
 .itemCards{
    margin-left: 5rem;
-   margin-right: 20rem;
-   margin-top: 8rem;
+   margin-right: 23rem;
+   margin-top: 5rem;
 }
 .itemName{
    
@@ -62,6 +70,7 @@
 }
 .itemIndex{
     padding: 1rem;
+    border-radius: 5px;
     background-color: rgb(182, 209, 224);
     
     
@@ -70,6 +79,7 @@
   margin-bottom: 0.3rem;
 }
 .codeTitle{
+  border-radius: 5px;
     color:rgb(94, 108, 116);
     background-color: rgb(182, 209, 224);
    padding-left: 1rem;
@@ -77,11 +87,11 @@
  border: 1px solid rgb(147, 169, 182);
 }
 .btnConvert{
-margin-left: 68rem;
+margin-left: 66rem;
 margin-right: 0.7rem;
 }
 .btnGit{
-margin-left: 72rem;
+margin-left: 70rem;
 margin-right: 0.7rem;
 }
 
