@@ -1,12 +1,12 @@
 <template>
   <div id="Tree">
 <div
-@click="expanded = !expanded"
 class="node">
 
-<p class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
+
+<p @click="expanded = !expanded" class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
 <div v-if="expanded && items.length > 0" :style="'margin-left: 4rem'">
-<p v-for="item in items" :key="item.Name">{{item.Name}}</p>
+<p @click="goToItem(item)" v-for="item in items" :key="item.Name">{{item.Name}}</p>
 </div>
 </div>
 <div v-if="expanded">
@@ -34,16 +34,18 @@ import itemsJson from '../jsonFiles/items.json'
         BoldTitle: Boolean,
         depth:{
           type: Number,
+          
           default:0,
         }
       },
       data(){
-        return{
+        return{ 
           expanded: this.shouldBeExpanded,
           items: [],
         }
       },
       methods: {
+        
         matchingIds: function() {
           return itemsJson.Components.filter((item) => {
             return this.node?.ComponentsIds?.includes(item.Id);
@@ -55,7 +57,6 @@ import itemsJson from '../jsonFiles/items.json'
       },
         watch: {
         expanded(isExpanded) {
-          console.log('hej i expanded watchern är den expanderad? :', isExpanded);
           if (isExpanded) {
             // hämta items
             this.getItemsFromJson([]);
