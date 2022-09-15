@@ -1,48 +1,51 @@
 <script>
     import LoginInfo from '../jsonFiles/signin.json'
+import addButton from './addButton.vue';
   
     
    export default {
-  name: 'signinComponent',
-  methods: {
-    getSigninText: function() {
-        return this.loggedIn ? 'Logout' : 'Login';
+    name: "signinComponent",
+    methods: {
+        getSigninText: function () {
+            return this.loggedIn ? "Logout" : "Login";
+        },
+        handleLoginButton: function () {
+            this.showLoginForm = this.loggedIn ? false : true;
+            if (this.loggedIn) {
+                this.loggedIn = false;
+                this.$router.push({ name: "home" });
+                "";
+            }
+        },
+        handleSignIn: function () {
+            if (!this.loggedIn) {
+                this.LoginInfo.AcceptedLogins.forEach((item) => {
+                    if (item.userName == this.username && item.password == this.password) {
+                        this.$router.push({ name: "home" });
+                        document.getElementById("password-error").style.display = "none";
+                        this.loggedIn = true;
+                        this.showLoginForm = false;
+                        return;
+                    }
+                    else {
+                        document.getElementById("password-error").style.display = "block";
+                    }
+                });
+            }
+        },
     },
-    handleLoginButton: function() {
-        this.showLoginForm = this.loggedIn ? false : true
-        if(this.loggedIn) {
-            this.loggedIn = false;
-            this.$router.push({ name: 'home' });''
-        }
+    data() {
+        return {
+            loggedIn: false,
+            showLoginForm: false,
+            add: false,
+            username: "",
+            password: "",
+            LoginInfo,
+        };
     },
-      handleSignIn: function() {
-        if(!this.loggedIn) {
-          this.LoginInfo.AcceptedLogins.forEach( (item) => {
-              if(item.userName == this.username && item.password == this.password) {
-                 this.$router.push({ name: 'home' });
-                document.getElementById('password-error').style.display = "none";
-                this.loggedIn = true;
-                this.showLoginForm = false;
-                  return;
-              }else {
-                 document.getElementById('password-error').style.display = "block";
-              }
-          });
-        }
-      },
-  },
- data() {
-return {
-    loggedIn: false,
-    showLoginForm: false,
-    add: false,
-    username: '',
-    password: '',
-    LoginInfo,
+    components: { addButton }
 }
- }
-  
-  }
  </script>
  
  
@@ -53,10 +56,12 @@ return {
      <button @click="handleLoginButton()" class="btn">{{getSigninText()}}</button>
      </router-link>
      
-    <div v-if="loggedIn">
+     <addButton v-if ="loggedIn" />
+
+    <!-- <div v-if="loggedIn">
      <button  id ="btn-add" class="btn-add ">Add</button>
      <v-icon class="add">mdi-plus-circle-outline </v-icon>
-    </div>
+    </div> -->
 
 
 
