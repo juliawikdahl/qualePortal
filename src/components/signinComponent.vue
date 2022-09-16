@@ -1,6 +1,6 @@
 <script>
     import LoginInfo from '../jsonFiles/signin.json'
-import addButton from './addButton.vue';
+import AddItemModal from './addItemModal.vue';
   
     
    export default {
@@ -44,7 +44,7 @@ import addButton from './addButton.vue';
             LoginInfo,
         };
     },
-    components: { addButton }
+    components: {AddItemModal }
 }
  </script>
  
@@ -57,7 +57,7 @@ import addButton from './addButton.vue';
      <button @click="handleLoginButton()" class="btn">{{getSigninText()}}</button>
      </router-link>
      
-     <addButton v-if ="loggedIn" />
+     <AddItemModal v-if ="loggedIn" />
     </div>
     
 
