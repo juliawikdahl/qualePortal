@@ -1,15 +1,35 @@
 <script>
       // import Modal from "vue-bs-modal";
+      import categoryJson from '../jsonFiles/categories.json'
       export default {
-            name: "addItemModal",
-
+      name: "addItemModal",
+      mounted() {
+        this.category = this.getCategoryNames();
+      },
+      methods: {
+        getCategoryNames: function() {
+          return categoryJson.Categories.map((cat) => { return cat.name });
+        },
+      },
+      // watch: {
+      //   category:function(newVal) {
+      //     this.getCategoryNames.foreach(element => {
+      //       if(element.key == newVal) {
+      //         this.
+      //       }
+      //     })
+      //   }
+      // },
+    
       data:() => ({
         showModal:false,
-        category: ['Buns', 'Danish breads', 'Danis bread coconut', 'Danish bread Cheesecake'],
-        underCategory: ['Cinnamon bun', 'Coconut bun', 'Danish breads', 'Cheesecakes'],
+        category: [],
+        selectedCategories: [],
+        underCategory: [],
         rules: [
         value => !!value || 'Required.',
         ],
+        title:''
         
       
     }),
@@ -40,6 +60,8 @@
                     <v-col cols="12" sm="6" >
                       <v-select
                         :items="category"
+                        v-model="selectedCategories"
+                        :key="category.Name"
                         attach  
                         clearable
                         solo
@@ -52,6 +74,7 @@
                     <v-col cols="12" sm="6" >
                       <v-select
                         :items="underCategory"
+                        :key="category.Name"
                         attach
                         clearable
                         solo
@@ -78,7 +101,6 @@
                             <v-text-field
                               v-model="title"
                               :rules="rules"     
-                              hide-details="auto"
                               counter="25"
                               hint="This field uses counter prop"
                               label="Title"

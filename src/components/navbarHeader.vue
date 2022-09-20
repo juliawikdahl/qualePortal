@@ -33,7 +33,7 @@ export default {
 
 .Navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: rgba(15, 15, 15, 0.867);
   padding: 20px;
 }
