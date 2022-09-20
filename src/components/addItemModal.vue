@@ -1,32 +1,7 @@
 <script>
-    import itemsJson from '../jsonFiles/items.json'
       // import Modal from "vue-bs-modal";
       import categoryJson from '../jsonFiles/categories.json'
       export default {
-<<<<<<< HEAD:src/components/addButton.vue
-            name: "addButton",
-            mounted() {
-              
-        this.items.forEach((item) => 
-        console.log(item.Name));
-       },
-      
-
-      data() {
-      return {
-        showModal:false,
-        items: itemsJson.Components,
-        
-      }
-    },
-    methods: {
-      Consoletest() {
-        this.items.forEach((item) => 
-        console.log(item.Name));
-       } 
-}}
-
-=======
       name: "addItemModal",
       mounted() {
         this.category = this.getCategoryNames();
@@ -72,7 +47,6 @@
     }),
 }
  
->>>>>>> 6b2dded7bfd811b70d276aafbdbba040d7f3cdd6:src/components/addItemModal.vue
 </script>
 
 <template v-slot:selection="{ attrs, item, select, selected }">
