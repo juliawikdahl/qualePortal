@@ -4,9 +4,9 @@
 class="node">
 
 
-<p @click="expanded = !expanded"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name || node.Name}}</p>
+<p @click="expanded = !expanded "  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name ||  node.Name}}</p>
 <div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'">
-<p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}}</p>
+<!-- <p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}} <v-icon>mdi-chevron-down</v-icon></p> -->
 </div>
 </div>
 <div v-if="expanded">
@@ -14,8 +14,8 @@ class="node">
   v-for="child in node.underCategories" 
   :key="child.name" 
   :node ="child"
-
   :depth="depth + 1"
+  @click="goToItem(item)"
   />
 </div>
 </div>

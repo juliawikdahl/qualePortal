@@ -34,6 +34,7 @@
             "Name": "Irish Coffee",
             "Description": "Irish whiskey and at least one level teaspoon of sugar are poured over black coffee and stirred in until fully dissolved. Thick cream is carefully poured over the back of a spoon initially held just above the surface of the coffee and gradually raised a little until the entire layer is floated.",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         },
         {
@@ -41,6 +42,7 @@
             "Name": "Black Ice Coffee",
             "Description": "Black organic ice coffee from Brazil",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         },
         {
@@ -48,6 +50,7 @@
             "Name": "Green Ice Tea",
             "Description": "Green tea is a type of ice tea that is made from Camellia sinensis leaves and buds that have not undergone the same withering and oxidation process used to make oolong teas and black teas.[1] Green tea originated in China, and since then its production and manufacture has spread to other countries in East Asia.",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         },
         {
@@ -55,6 +58,7 @@
             "Name": "Rooibos",
             "Description": "The tea has been popular in Southern Africa for generations. The tea has an earthy flavour,  similar to yerba mate or tobacco.Rooibos was formerly classified as Psoralea but is now thought to be part of Aspalathus following Dahlgren (1980). The specific name of linearis was given by Burman (1759) for the plant's linear growing structure and needle-like leaves.",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         },
         {
@@ -62,6 +66,7 @@
             "Name": "Coca Cola",
             "Description": "Coca cola",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         },
         {
@@ -69,6 +74,7 @@
             "Name": "Danish bread Cheesecake",
             "Description": "Its a hybrid between danish bread and cheesecake",
             "Index":" 50–75 % Etanol, 10–15 % 2-Propanol, 5–7,5 % Butanon och 1–2,5 % Aceton.",
+            "xmlCode": "",
             "gitUrl": ""
         }
     ]

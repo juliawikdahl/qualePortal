@@ -1,17 +1,29 @@
 <script>
+    import itemsJson from '../jsonFiles/items.json'
       // import Modal from "vue-bs-modal";
       export default {
             name: "addButton",
+            mounted() {
+              
+        this.items.forEach((item) => 
+        console.log(item.Name));
+       },
+      
 
       data() {
       return {
         showModal:false,
-        items: ['foo', 'bar', 'fizz', 'buzz'],
-        value: ['foo', 'bar', 'fizz', 'buzz'],
+        items: itemsJson.Components,
+        
       }
     },
-}
- 
+    methods: {
+      Consoletest() {
+        this.items.forEach((item) => 
+        console.log(item.Name));
+       } 
+}}
+
 </script>
 
 <template>
@@ -69,7 +81,7 @@
                             cols="12"
                             sm="6"
                           >
-                            <v-text-field
+                            <v-text-field 
                               v-model="title"
                               :rules="rules"
                               counter="25"
@@ -104,7 +116,7 @@
                       ></v-textarea>
                 </v-container>
 
-                 <button class="add-button" @click="showModal =false" >Add</button>
+                 <button class="add-button"   @click="showModal =false, Consoletest()" >Add</button>
             
          </div>
            
