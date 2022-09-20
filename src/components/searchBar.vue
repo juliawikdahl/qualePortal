@@ -1,18 +1,18 @@
 <script>
-     import categoryJson from '../jsonFiles/categories.json'
+     import ItemJson from '../jsonFiles/items.json'
+
     export default{
           name: 'searchBar',
           mounted() {
-        this.items = this.getCategories();
-        console.log(this.getCategories())
+        this.items = this.getItems();
       },
       methods: {
         goToItem: function(item) {
           this.$router.push({ name: 'item', params: { id: item.Id } });
         },  
 
-        getCategories: function() {
-          return categoryJson.Categories.map((cat) => { return cat.name });
+        getItems: function() {
+          return ItemJson.Components.map((i) => { return i.Name });
         }
         
       },
@@ -29,22 +29,21 @@
 <template>
   
     
-        <div class="search-b">
+        <div class="search-b" data-app>
        <v-autocomplete
           
-             dense
-              filled
+              dense
               rounded
               solo
               placeholder="Search..."
-              click:prepend-inner
+              click:append
               :items="items"
-             
-         
-    
+              allow-overflow
+              append-icon = mdi-magnify
+              
       ></v-autocomplete>
              <!-- <input class="searchbar"   type="text" placeholder="Search.. "  /> -->
-             <v-icon class="search">mdi-magnify</v-icon>
+             
                   
            
              

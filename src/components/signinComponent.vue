@@ -52,10 +52,14 @@ import AddItemModal from './addItemModal.vue';
  
  <template>
  <div>
-    <div style="display: flex;">
-        <router-link :to="{ path: '/login' }">
-     <button @click="handleLoginButton()" class="btn">{{getSigninText()}}</button>
+    <div class="userIcon" style="display: flex;">
+        
+           
+                  <router-link :to="{ path: '/login' }">
+     <button @click="handleLoginButton()" class="btn"> <v-icon id="userIcon" style="color:white;">mdi-account-outline </v-icon> {{getSigninText()}}  </button>
      </router-link>
+       
+  
      
      <AddItemModal v-if ="loggedIn" />
     </div>
@@ -89,6 +93,10 @@ import AddItemModal from './addItemModal.vue';
  </template>
  
  <style scoped>
+   .userIcon {
+   margin-left: 8rem;
+   }
+
     .my-form {
      top: 50%;
     left: 50%;

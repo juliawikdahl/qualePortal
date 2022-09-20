@@ -18,6 +18,7 @@ export default {
      <div class="Navbar">
         <v-img class="logo" :src="logo" /> 
          <searchBar /> 
+        
         <SigninComponent/>   
     </div>
 
@@ -42,14 +43,27 @@ export default {
     max-height: 150px;
 max-width: 200px;
 }
-.btn {
+/* .btn {
  
  color: black;
  border-radius: 25px;
- margin-left: 14rem;
- padding: 1rem 2rem;
+ padding: 0.6rem 1.4rem;
  margin-top: 30px;
  background-color: white;
+ -webkit-transition: all 0.7s ease;
+ transition: all 0.7s ease;
+ cursor: pointer;
+ 
+ } */
+ 
+.btn {
+    font-size: 18px;
+ 
+ color: white;
+ border-radius: 25px;
+ padding: 0.6rem 1.4rem;
+ margin-top: 30px;
+ background-color: transparent;
  -webkit-transition: all 0.7s ease;
  transition: all 0.7s ease;
  cursor: pointer;
@@ -58,7 +72,8 @@ max-width: 200px;
 
 .btn:hover {
 box-shadow: 0 0 8px rgb(152, 150, 150);
-padding: 18px 40px;
+padding: 10px 30px;
 text-align: center;
 }
+
 </style>

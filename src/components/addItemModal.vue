@@ -20,6 +20,18 @@
       //     })
       //   }
       // },
+      watch: {
+        selectedCategories: function(newVals) {
+        let underCategories = [];
+        categoryJson.Categories?.forEach(element => {
+        if(newVals.includes(element.name)) {
+          underCategories.push(element.underCategories.map(uc => uc.Name));
+            }
+            
+          });
+          this.underCategory = underCategories.flat();
+        }
+      },
     
       data:() => ({
         showModal:false,
@@ -61,7 +73,6 @@
                       <v-select
                         :items="category"
                         v-model="selectedCategories"
-                        :key="category.Name"
                         attach  
                         clearable
                         solo
@@ -74,7 +85,6 @@
                     <v-col cols="12" sm="6" >
                       <v-select
                         :items="underCategory"
-                        :key="category.Name"
                         attach
                         clearable
                         solo
