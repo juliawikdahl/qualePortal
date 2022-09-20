@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="itemCards">  <button  class="btnGit">Git</button><button class="btnEdit">Edit</button> 
-       <div class="itemName" @click="Consoletest()">{{selectedItem.Name}}  </div>
+       <div class="itemName">{{selectedItem.Name}}  </div>
    
         <div class="itemDes">{{selectedItem.Description}}</div>
       <div><div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> <div class="itemIndex">{{selectedItem.Index}}</div></div>   
@@ -44,9 +44,7 @@
         navigator.clipboard.writeText(this.selectedItem.Index)
 
        },
-       Consoletest() {
-           console.log(this.selectedItem.Name)
-       }
+       
       }
     }
     </script>
