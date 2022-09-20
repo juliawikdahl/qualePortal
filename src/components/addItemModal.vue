@@ -1,7 +1,9 @@
 <script>
     import itemsJson from '../jsonFiles/items.json'
       // import Modal from "vue-bs-modal";
+      import categoryJson from '../jsonFiles/categories.json'
       export default {
+<<<<<<< HEAD:src/components/addButton.vue
             name: "addButton",
             mounted() {
               
@@ -24,9 +26,44 @@
        } 
 }}
 
+=======
+      name: "addItemModal",
+      mounted() {
+        this.category = this.getCategoryNames();
+      },
+      methods: {
+        getCategoryNames: function() {
+          return categoryJson.Categories.map((cat) => { return cat.name });
+        },
+      },
+      // watch: {
+      //   category:function(newVal) {
+      //     this.getCategoryNames.foreach(element => {
+      //       if(element.key == newVal) {
+      //         this.
+      //       }
+      //     })
+      //   }
+      // },
+    
+      data:() => ({
+        showModal:false,
+        category: [],
+        selectedCategories: [],
+        underCategory: [],
+        rules: [
+        value => !!value || 'Required.',
+        ],
+        title:''
+        
+      
+    }),
+}
+ 
+>>>>>>> 6b2dded7bfd811b70d276aafbdbba040d7f3cdd6:src/components/addItemModal.vue
 </script>
 
-<template>
+<template v-slot:selection="{ attrs, item, select, selected }">
 <div>
       <div class="modal-overlay" v-if="showModal" @click="showModal =false"></div>
       
@@ -34,7 +71,7 @@
                   @click ="showModal = true"
                     class="btn-add"
                     outlined
-                    large
+                    medium
                     fab
                     color="indigo"
                   >
@@ -43,14 +80,17 @@
                 
            
     <div class="modal" v-if="showModal"> 
-
               <div>
-                <v-container fluid>
+                <v-container fluid >
                   <v-row align="center" >
                     <v-col cols="12" sm="6" >
                       <v-select
-                        :items="items"
-                        attach
+                        :items="category"
+                        v-model="selectedCategories"
+                        :key="category.Name"
+                        attach  
+                        clearable
+                        solo
                         chips
                         label="Category"
                         multiple
@@ -59,8 +99,11 @@
 
                     <v-col cols="12" sm="6" >
                       <v-select
-                        :items="items"
+                        :items="underCategory"
+                        :key="category.Name"
                         attach
+                        clearable
+                        solo
                         chips
                         label="Under Cateogry"
                         multiple
@@ -70,7 +113,7 @@
                     
                   </v-row>
                 </v-container>
-   
+            
               </div>
 
         <div class="add-form">
@@ -83,7 +126,7 @@
                           >
                             <v-text-field 
                               v-model="title"
-                              :rules="rules"
+                              :rules="rules"     
                               counter="25"
                               hint="This field uses counter prop"
                               label="Title"
@@ -104,6 +147,7 @@
                                 auto-grow
                                 label="Description"
                                 rows="3"
+                                :rules="rules"
                                 row-height="20"
                               ></v-textarea>
                           </v-col>
@@ -111,6 +155,7 @@
              
                   <v-container fluid>
                       <v-textarea
+                      :rules="rules"
                         autocomplete="Code"
                         label="Code"
                       ></v-textarea>
@@ -179,13 +224,13 @@
 
   
    .btn-add {
-    padding: 2rem;
+
    color: white;
    border-radius: 50%;
    -webkit-transition: all 0.7s ease;
    transition: all 0.7s ease;
    cursor: pointer;
-   margin-top: 20px;
+   margin-top: 26px;
    margin-left: 2rem;
    
     
@@ -193,7 +238,7 @@
 
 .btn-add:hover {
 box-shadow: 0 0 8px rgb(152, 150, 150);
-padding:  37px;
+padding:  30px;
 text-align: center;
 }
 
@@ -237,5 +282,9 @@ text-align: center;
     cursor: pointer ;
    }
 
+
+  /* .v-messages__message {
+    color: red !important;
+  } */
 
 </style>
