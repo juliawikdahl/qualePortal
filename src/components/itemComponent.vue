@@ -1,45 +1,64 @@
 <template>
-<div>
-    <div class="itemCards">  <button  class="btnGit">Git</button><button class="btnEdit">Edit</button> 
-       <div class="itemName">{{selectedItem.Name}}  </div>
-   
+  <div>
+  <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
+      <div class="itemCards">  
+        <button class="btnGit">Git</button><button class="btnEdit">Edit</button>
+        <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
-      <div><div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> <div class="itemIndex">{{selectedItem.Index}}</div></div>   
-    
-    </div>
-</div>
+      </div>
+      <div>
+        <div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
+        <div class="itemIndex">{{selectedItem.Index}}</div>
+      </div>   
 
+    </div> 
+</div>
+    
 </template>
 
 <script>
    import itemsJson from '../jsonFiles/items.json'
+   import categoryJson from '../jsonFiles/categories.json'
    
     export default{
-          name: "itemComponent",
+      name: "itemComponent",
       mounted() {
-        this.getItemById(this.$route.params.id);
+        this.getItemByUndercategoryName(this.$route.params.name);
       },
       data() {
         return{
           items: itemsJson.Components,
-          selectedItem: {}
+          categories: categoryJson.Categories,
+          selectedItems: [],
       }
     },        
       watch: {
-        '$route.params.id': function() {  
-          this.getItemById(this.$route.params.id);
+        '$route.params.name': function() {  
+          this.getItemByUndercategoryName(this.$route.params.name);
         }
       },
       methods: {
-        getItemById(id) {
-          const item = this.items.filter(item => item.Id == id);
-          if(item.length == 0) {
-            // 404 error page
-            console.log('Error');
-            return;
+        getItemByUndercategoryName(name) {
+          console.log('categoryName', name)
+          const underCategory = this.getUndercategoryByName(name);
+          if(!underCategory) {
+            // 404 underkategorin finns ej
+            return null;
           }
-          this.selectedItem = item[0];
-        }, 
+          this.selectedItems = this.items.filter(item => underCategory.ComponentsIds.includes(item.Id));
+        },
+        getUndercategoryByName(name) {
+          let underCat = null
+          this.categories.forEach((cat) => {
+            cat.underCategories.filter(uc => {
+              if(uc.Name == name) {
+                underCat = uc;
+              }
+            })
+          })
+          return underCat;
+        },
+        
        copyToClipboard: function(){
         navigator.clipboard.writeText(this.selectedItem.Index)
 
