@@ -36,7 +36,7 @@ export default {
   display: flex;
   justify-content: center;
   background-color: rgba(15, 15, 15, 0.867);
-  padding: 20px;
+  padding: 30px;
 }
 
 .logo {
