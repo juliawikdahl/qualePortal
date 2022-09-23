@@ -1,12 +1,12 @@
 <script>
-    import itemComponent from '../components/itemComponent.vue'
+    import categoryComponent from '../components/categoryComponent.vue'
 
     
     export default{
           name: "itemPage",
           components: {
-          itemComponent
-        }
+            categoryComponent
+}
       }
             
     
@@ -14,6 +14,6 @@
 
 <template>  
     <div> 
-       <itemComponent/>
+       <categoryComponent/>
     </div>
 </template>

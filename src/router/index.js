@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import homePage from '../views/homePage.vue'
 import signinPage from '../views/signinPage.vue'
 import itemPage from '../views/itemPage.vue'
+import categoryPage from '../views/categoryPage.vue'
 
 
 Vue.use(VueRouter)
@@ -19,8 +20,13 @@ const routes = [
   
   },
   {
+    name: 'category',
+    path: '/category/:name',
+    component: categoryPage,
+  },
+  {
     name: 'item',
-    path: '/item/:name',
+    path: '/item/:id',
     component: itemPage,
   }
 ]

@@ -26,9 +26,7 @@ import footerFooter from './components/footer.vue'
   <template>
 
  <div>
-  <router-link :to="{ path: '/' }">
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
-  </router-link>
   <div id="staticView">
     <div >
   <treeView v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
