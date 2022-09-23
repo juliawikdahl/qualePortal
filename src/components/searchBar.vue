@@ -1,6 +1,6 @@
 <script>
      import ItemJson from '../jsonFiles/items.json'
-     import categoryJson from '../jsonFiles/categories.json'
+    
 
     export default{
           name: 'searchBar',
