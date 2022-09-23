@@ -71,7 +71,7 @@ import itemsJson from '../jsonFiles/items.json'
 </script>
 <style scoped>
   #Tree{
-    
+   
     white-space: nowrap;
    max-width: 15rem;
    min-width: 15rem;
