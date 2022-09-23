@@ -1,5 +1,6 @@
 <script>
      import ItemJson from '../jsonFiles/items.json'
+     import categoryJson from '../jsonFiles/categories.json'
 
     export default{
           name: 'searchBar',
@@ -16,12 +17,15 @@
         }
         
       },
+      watch: {
+        searchedItem() {
+           console.log('valt item', this.searchedItem);
+        },
+      },
       data:() => ({
           items: [],
-       
+          searchedItem: ''
       })
-    
-    
     }
     </script>
 
@@ -31,7 +35,7 @@
     
         <div class="search-b" data-app>
        <v-autocomplete
-          
+              v-model="searchedItem"
               dense
               rounded
               solo
@@ -40,6 +44,8 @@
               :items="items"
               allow-overflow
               append-icon = mdi-magnify
+              clearable
+     
               
       ></v-autocomplete>
              <!-- <input class="searchbar"   type="text" placeholder="Search.. "  /> -->
