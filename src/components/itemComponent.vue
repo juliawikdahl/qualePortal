@@ -262,7 +262,6 @@ import EditItemComponent from './editItemComponent.vue';
     margin-bottom: 0.3rem;
 }
 .codeTitle{
- 
  padding-left: 1rem;
  margin-left: 5.5rem;
  max-width: 75rem;
