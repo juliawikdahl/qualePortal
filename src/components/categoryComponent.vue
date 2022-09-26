@@ -4,7 +4,7 @@
       <div class="itemCards">  
         <button class="btnGit">Git</button>
         <router-link :to="{ path: `/item/${selectedItem.Id}` }" >
-      </router-link>
+        </router-link>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
