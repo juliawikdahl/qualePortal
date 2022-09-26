@@ -53,10 +53,7 @@
               
       ></v-autocomplete>
              <!-- <input class="searchbar"   type="text" placeholder="Search.. "  /> -->
-             
-                  
            
-             
         </div>
        
      

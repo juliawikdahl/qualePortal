@@ -11,15 +11,7 @@
           return categoryJson.Categories.map((cat) => { return cat.name });
         },
       },
-      // watch: {
-      //   category:function(newVal) {
-      //     this.getCategoryNames.foreach(element => {
-      //       if(element.key == newVal) {
-      //         this.
-      //       }
-      //     })
-      //   }
-      // },
+   
       watch: {
         selectedCategories: function(newVals) {
         let underCategories = [];

@@ -6,6 +6,8 @@ import footerFooter from './components/footer.vue'
 
   export default {
     name: "App",
+    mounted() {
+    },
     data() {
         return{
 

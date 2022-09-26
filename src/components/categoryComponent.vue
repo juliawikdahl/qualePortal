@@ -2,7 +2,9 @@
   <div>
   <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
       <div class="itemCards">  
-        <button class="btnGit">Git</button><button class="btnEdit">Edit</button>
+        <button class="btnGit">Git</button>
+        <router-link :to="{ path: '/item/:id' }" >
+        <button class="btnEdit">Edit</button></router-link>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
