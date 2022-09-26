@@ -3,8 +3,8 @@
   <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
       <div class="itemCards">  
         <button class="btnGit">Git</button>
-        <router-link :to="{ path: '/item/:id' }" >
-        <button class="btnEdit">Edit</button></router-link>
+        <router-link :to="{ path: `/item/${selectedItem.Id}` }" >
+      </router-link>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
@@ -12,7 +12,6 @@
         <div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
         <div class="itemIndex">{{selectedItem.Index}}</div>
       </div>   
-
     </div> 
 </div>
     
@@ -32,6 +31,7 @@
           items: itemsJson.Components,
           categories: categoryJson.Categories,
           selectedItems: [],
+          showModal: false,
       }
     },        
       watch: {

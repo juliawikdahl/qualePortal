@@ -1,5 +1,6 @@
 <script>
     import categoryJson from '../jsonFiles/categories.json'
+    import itemsJson from '../jsonFiles/items.json'
      export default{
       name: "editItemComponent",
     mounted() {
@@ -44,11 +45,7 @@
 </script>
 
 <template>
-
-
-<div class="modal-overlay" v-if="showModal" @click="showModal =false"></div>
-        
-   
+<div class="modal-overlay" v-if="showModal" @click="showModal =false">
         <div class="modal" v-if="showModal"> 
               <div>
                 <v-container fluid >
@@ -144,8 +141,6 @@
                  <button class="add-button"   @click="showModal =false" >Edit</button>
             
          </div>
-           
-        
-        </div>
-
+    </div>
+  </div>
 </template>
