@@ -9,7 +9,7 @@
             },
             {
                 "Name": "Danish breads",
-                "ComponentsIds": [2, 10]
+                "ComponentsIds": [2]
             },
             {
                 "Name": "Cheesecakes",
@@ -26,7 +26,7 @@
             },
             {
                 "Name": "Tea",
-                "ComponentsIds": [8 ]
+                "ComponentsIds": [8]
             },
             {
                 "Name": "Hot Chocolate",

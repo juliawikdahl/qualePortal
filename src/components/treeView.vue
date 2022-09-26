@@ -46,7 +46,7 @@ import itemsJson from '../jsonFiles/items.json'
       },
       methods: {
         goToItem: function() {
-          this.$router.push({ name: 'item', params: { name: this.node.Name } });
+          this.$router.push({ name: 'category', params: { name: this.node.Name } });
         },
         matchingIds: function() {
           return itemsJson.Components.filter((item) => {

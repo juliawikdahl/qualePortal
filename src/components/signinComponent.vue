@@ -62,6 +62,8 @@ import AddItemModal from './addItemModal.vue';
   
      
      <AddItemModal v-if ="loggedIn" />
+     
+
     </div>
     
 

@@ -1,6 +1,5 @@
 <script>
      import ItemJson from '../jsonFiles/items.json'
-    
 
     export default{
           name: 'searchBar',
@@ -8,18 +7,23 @@
         this.items = this.getItems();
       },
       methods: {
-        goToItem: function(item) {
-          this.$router.push({ name: 'item', params: { id: item.Id } });
-        },  
-
         getItems: function() {
           return ItemJson.Components.map((i) => { return i.Name });
-        }
-        
+        },       
       },
       watch: {
         searchedItem() {
-           console.log('valt item', this.searchedItem);
+           if(this.searchedItem) 
+           {
+              const item = ItemJson.Components.filter((item) => 
+              {
+                return item.Name == this.searchedItem
+              })[0];
+              
+              // Route to item
+              console.log('item', item);
+              this.$router.push({ name: 'item', params: { id: item.Id } });
+           }
         },
       },
       data:() => ({
@@ -49,10 +53,7 @@
               
       ></v-autocomplete>
              <!-- <input class="searchbar"   type="text" placeholder="Search.. "  /> -->
-             
-                  
            
-             
         </div>
        
      
