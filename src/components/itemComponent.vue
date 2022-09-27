@@ -1,7 +1,7 @@
 <script>
-   import itemsJson from '../jsonFiles/items.json'
-   import categoryJson from '../jsonFiles/categories.json'
-import EditItemComponent from './editItemComponent.vue';
+  import itemsJson from '../jsonFiles/items.json'
+  import categoryJson from '../jsonFiles/categories.json'
+  import EditItemComponent from './editItemComponent.vue';
 
     export default{
     name: "itemComponent",
@@ -54,11 +54,11 @@ import EditItemComponent from './editItemComponent.vue';
     </script>
     
     
-    <template>
+<template>
   <div>
       <div class="itemCards">  
         <button class="btnGit">Git</button>
-        <button @click="showModal =true" class="btnEdit">Edit</button>
+        <button @click="showModal=true" class="btnEdit">Edit</button>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
@@ -67,111 +67,8 @@ import EditItemComponent from './editItemComponent.vue';
         <div class="itemIndex">{{selectedItem.Index}}</div>
       </div>   
 
-<EditItemComponent v-if="showModal" />
-
-   <!-- <div class="modal-overlay" v-if="showModal" @click="showModal =false"></div> 
-   
-<div class="modal" v-if="showModal"> 
-      <div>
-        <v-container fluid >
-          <v-row align="center" >
-            <v-col cols="12" sm="6" >
-              <v-select
-                :items="category"
-                v-model="selectedCategories"
-                attach  
-                clearable
-                solo
-                chips
-                label="Category"
-                multiple
-              > </v-select>
-            </v-col>
-
-            <v-col cols="12" sm="6" >
-              <v-select
-                :items="underCategory"
-                attach
-                clearable
-                solo
-                chips
-                label="Under Cateogry"
-                multiple
-              > </v-select>
-            </v-col>
-
-            
-          </v-row>
-        </v-container>
-    
-      </div>
-
-<div class="add-form">
-        <v-form>
-              <v-container>
-                <v-row>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                  >
-                    <v-text-field 
-                      v-model="title"
-                      :rules="rules"     
-                      counter="25"
-                      hint="This field uses counter prop"
-                      label="Title"
-                    ></v-text-field>
-                  </v-col>
-
-                  <input class="url" type="url" placeholder="Git url.." />
-                </v-row>
-              </v-container>
-            </v-form>
-
-         <div class="des">
-                <v-col
-                      cols="12"
-                      sm="12"
-                    >
-                      <v-textarea
-                      v-model="des"
-                        auto-grow
-                        label="Description"
-                        rows="3"
-                        :rules="rules"
-                        row-height="20"
-                      ></v-textarea>
-                  </v-col>
-          </div>
-     
-          <v-container fluid>
-              <v-textarea
-              v-model="codeJ"
-              :rules="rules"
-                autocomplete="CodeJSON"
-                label="Code JSON"
-                rows="3"
-              ></v-textarea>
-        </v-container>
-        <v-container fluid>
-              <v-textarea
-              v-model="codeX"
-              :rules="rules"
-                autocomplete="CodeXml"
-                label="Code XML"
-                rows="3"
-              ></v-textarea>
-        </v-container>
-
-         <button class="add-button"   @click="showModal =false" >Edit</button>
-    
- </div>
-   
-
-</div>  -->
-</div>
-
-    
+    <EditItemComponent @closeModal="showModal=false" v-if="showModal" />
+  </div>
 </template>
 
 
