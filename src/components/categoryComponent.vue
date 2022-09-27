@@ -8,10 +8,11 @@
         </router-link>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
-      </div>
+      
       <div>
         <div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
         <div class="itemIndex">{{selectedItem.Index}}</div>
+      </div>
       </div>   
     </div> 
 </div>
