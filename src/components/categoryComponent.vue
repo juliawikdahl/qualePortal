@@ -3,7 +3,8 @@
   <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
       <div class="itemCards">  
         <button class="btnGit">Git</button>
-        <router-link :to="{ path: `/item/${selectedItem.Id}` }" >
+        <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
+          <a>Edit</a>
         </router-link>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>

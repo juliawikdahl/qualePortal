@@ -192,6 +192,10 @@
       color: white;
       border-radius: 5px;
   }
+  .add-button:hover {
+  background-color: white;
+        color: black;
+}
   .url {
       height: 40px;
       width: 330px;

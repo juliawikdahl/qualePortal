@@ -8,6 +8,14 @@
     mounted() {
         this.getItemById(this.$route.params.id);
         this.category = this.getCategoryNames();
+      
+        if(this.$route.query.openEdit) {
+          this.showModal = true;
+        
+          this.$router.push(this.$route.path);
+        }
+        this.getItemById(this.$route.params.id);
+        this.category = this.getCategoryNames();
     },
     data() {
         return {
