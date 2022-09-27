@@ -1,6 +1,7 @@
 <script>
      import ItemJson from '../jsonFiles/items.json'
 
+     
     export default{
           name: 'searchBar',
           mounted() {
