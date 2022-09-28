@@ -75,7 +75,7 @@
         <div class="itemIndex">{{selectedItem.Index}}</div>
       </div>   
 
-    <EditItemComponent @closeModal="showModal=false" v-if="showModal" />
+    <EditItemComponent :item="selectedItem" @closeModal="showModal=false" v-if="showModal" />
   </div>
 </template>
 

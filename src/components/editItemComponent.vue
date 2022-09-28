@@ -3,6 +3,9 @@
     import itemsJson from '../jsonFiles/items.json'
      export default{
       name: "editItemComponent",
+      props : {
+            item: {}
+        },
     mounted() {
         this.category = this.getCategoryNames();
       },
@@ -13,9 +16,9 @@
           selectedCategories: [],
           underCategory: [],
           showModal:false,
-          title:'',
-          des:'',
-          codeJ:'',
+          title: this.item.Name,
+          des: this.item.Description,
+          codeJ:this.item.Index,
           codeX: '',
           
 
