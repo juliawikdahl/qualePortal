@@ -1,8 +1,9 @@
 <template>
     <div>
-    <!-- <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
-        <div class="itemCards">  
-          <button class="btnGit">Git</button>
+    <div v-for="selectedItem in underCategories" :key="selectedItem.Name">
+        <div class="itemCards"> 
+          <p>{{selectedItem.Name}}</p> 
+          <!-- <button class="btnGit">Git</button>
           <router-link :to="{ path: `/item/${selectedItem.Id}` }" >
           </router-link>
           <div class="itemName">{{selectedItem.Name}}</div>
@@ -11,10 +12,10 @@
        
           <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
           <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
-          <div v-else> {{selectedItem.xmlCode}}</div></div>
+          <div v-else> {{selectedItem.xmlCode}}</div></div> -->
        
         </div>   
-      </div>  -->
+      </div> 
   </div>
   
   </template>
@@ -29,19 +30,38 @@
       export default{
       name: "allCategoriesView",
       mounted() {
-        console.log(this.$route.params.name)
+        this.getUnderCategories();
       },
       watch: {
         '$route.params.name': function() {
-          console.log(this.$route.params.name)
+          this.getUnderCategories();
         },
       },
       data() {
           return {
               items: itemsJson.Components,
               categories: categoryJson.Categories,
+              selectedItems: [],
+              underCategories: [],
+              itemsToShow: []
 
-          };
+          };},
+          methods: {
+        getUnderCategories: function() {
+       
+         this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
+         const ids = this.underCategories.map(uc => uc.forEach(u => { return u.ComponentsIds}));
+
+         console.log('ids är:', ids);
+        },
+        // getItemByUndercategoryName(name) {
+        //   const underCategory = this.getUndercategoryByName(name);
+        //   if(!underCategory) {
+        //     // 404 underkategorin finns ej
+        //     return null;
+        //   }
+        //   this.selectedItems = this.items.filter(item => underCategory.ComponentsIds.includes(item.Id));
+        // },
       }
      
     
