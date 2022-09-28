@@ -19,7 +19,7 @@
           title: this.item.Name,
           des: this.item.Description,
           codeJ:this.item.Index,
-          codeX: '',
+          codeX: this.item.xmlCode,
           
 
       }
@@ -92,6 +92,7 @@
                             sm="6"
                           >
                             <v-text-field 
+                              spellcheck="false"
                               v-model="title"
                               counter="25"
                               hint="This field uses counter prop"
@@ -109,33 +110,31 @@
                               cols="12"
                               sm="12"
                             >
-                              <v-textarea
-                              v-model="des"
-                                auto-grow
+                              <v-textarea 
+                                spellcheck="false"
+                                v-model="des"
                                 label="Description"
-                                rows="3"
-                                row-height="20"
+                                rows="3" 
                               ></v-textarea>
                           </v-col>
                   </div>
              
                   <v-container fluid>
-                      <v-textarea
-                      v-model="codeJ"
-                        autocomplete="CodeJSON"
+                      <v-textarea 
+                        spellcheck="false"
+                        v-model="codeJ"
                         label="Code JSON"
                         rows="3"
                       ></v-textarea>
                 </v-container>
                 <v-container fluid>
                       <v-textarea
-                      v-model="codeX"
-                        autocomplete="CodeXml"
+                        spellcheck="false"
+                        v-model="codeX"
                         label="Code XML"
                         rows="3"
                       ></v-textarea>
                 </v-container>
-        
                  <button class="add-button"   @click="$emit('closeModal')" >Edit</button>
             
          </div>
@@ -207,9 +206,6 @@
       border-bottom: 1px solid rgb(138, 137, 137);
       padding-left: 0.5rem;
   }
-  
-  
-  
   
   .itemCards{
      margin-left: 6rem;

@@ -16,6 +16,7 @@ export default {
 
 <template>
      <div class="Navbar">
+        
         <v-img class="logo" :src="logo" /> 
          <searchBar /> 
         

@@ -4,8 +4,8 @@
 class="node">
 
 
-<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name ||  node.Name}}</p>
-<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'">
+<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}"> {{node.name}} {{node.Name}} </p>
+<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'"> <v-icon id="arrow"  style="color:white" > mdi-chevron-down </v-icon>
 <!-- <p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}} <v-icon>mdi-chevron-down</v-icon></p> -->
 </div>
 </div>
@@ -13,12 +13,14 @@ class="node">
   <treeView 
   v-for="child in node.underCategories" 
   :key="child.name" 
+  append-icon = mdi-pencil
   :node ="child"
   :depth="depth + 1"
   @click="goToItem(item)"
   />
 </div>
 </div>
+
 </template>
 
 
@@ -110,5 +112,9 @@ import itemsJson from '../jsonFiles/items.json'
 .Rooibos{
   color: brown;
   
+}
+
+#arrow {
+  color: white;
 }
 </style>

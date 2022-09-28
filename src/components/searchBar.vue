@@ -50,6 +50,7 @@
               allow-overflow
               append-icon = mdi-magnify
               clearable
+              spellcheck="false"
      
               
       ></v-autocomplete>
