@@ -9,14 +9,15 @@
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       
-      <div>
-        <div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
-        <div class="itemIndex">{{selectedItem.Index}}</div>
-      </div>
+     
+        <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
+        <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
+        <div v-else> {{selectedItem.xmlCode}}</div></div>
+     
       </div>   
     </div> 
 </div>
-    
+
 </template>
 
 <script>
@@ -34,6 +35,7 @@
           categories: categoryJson.Categories,
           selectedItems: [],
           showModal: false,
+          showJson: true
       }
     },        
       watch: {
