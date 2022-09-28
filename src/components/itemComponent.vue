@@ -21,6 +21,7 @@
             des: "",
             codeJ: "",
             codeX: "",
+            showJson: true
         };
     },
     watch: {
@@ -63,8 +64,11 @@
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
       <div>
-        <div class="codeTitle">Json <button  class="btnConvert">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
-        <div class="itemIndex">{{selectedItem.Index}}</div>
+        <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
+        <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
+        <div v-else> {{selectedItem.xmlCode}}</div></div>
+
+        
       </div>   
 
     <EditItemComponent @closeModal="showModal=false" v-if="showModal" />
