@@ -15,7 +15,7 @@
 
         <div class="swap">
             <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
-        <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
+        <v-icon @click="copyToClipboard(selectedItem.Index)"> mdi-content-copy </v-icon>
         </div>
       </div> 
         
@@ -74,8 +74,8 @@
           return underCat;
         },
         
-       copyToClipboard: function(){
-        navigator.clipboard.writeText(this.selectedItem.Index)
+       copyToClipboard: function(index){
+        navigator.clipboard.writeText(index)
 
        },
        

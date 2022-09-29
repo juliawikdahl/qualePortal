@@ -68,9 +68,7 @@
       <div class="itemCards">  
         <div class="icons">
           <button class="btnGit">View on GitHub</button>
-        <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
-          <v-icon>mdi-pencil</v-icon>  
-        </router-link>
+          <v-icon @click="showModal = true">mdi-pencil</v-icon>  
         </div>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
