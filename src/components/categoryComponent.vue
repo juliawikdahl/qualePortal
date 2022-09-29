@@ -2,14 +2,16 @@
   <div>
   <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
       <div class="itemCards">  
-        <button class="btnGit">Git</button>
+  
+        <div class="icons">
+          <button class="btnGit">View on GitHub</button>
         <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
-          <a>Edit</a>
+          <v-icon>mdi-pencil</v-icon>  
         </router-link>
+        </div>
+        
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
-      
-     
         <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
         <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
         <div v-else> {{selectedItem.xmlCode}}</div></div>
@@ -113,11 +115,17 @@
 margin-left: 66rem;
 margin-right: 0.7rem;
 }
-.btnGit{
-margin-left: 70rem;
-margin-right: 0.7rem;
-}
+.btnGit {
 
+  border: 1px solid rgb(4, 4, 4);
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.icons {
+  display: flex;
+  justify-content: end;
+}
 
 
 </style>

@@ -67,7 +67,7 @@
   <div>
       <div class="itemCards">  
         <button class="btnGit">Git</button>
-        <button @click="showModal=true" class="btnEdit">Edit</button>
+        <v-icon @click="showModal=true"> mdi-pencil </v-icon>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
