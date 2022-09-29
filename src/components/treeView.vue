@@ -1,24 +1,27 @@
+
 <template>
   <div id="Tree">
 <div
 class="node">
 
 
-<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}">{{node.name ||  node.Name}}</p>
-<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'">
+<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`, 'font-weight': `${depth < 1 ? '600' : '300'}`}"> {{node.name}} {{node.Name}} </p>
+<div v-if="expanded && items.length > 0" :style="' 3rem'"> <v-icon id="arrow"  style="color:white" > mdi-chevron-down </v-icon>
 <!-- <p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}} <v-icon>mdi-chevron-down</v-icon></p> -->
 </div>
 </div>
 <div v-if="expanded">
-  <treeView 
-  v-for="child in node.underCategories" 
-  :key="child.name" 
+  <treeView
+  v-for="child in node.underCategories"
+  :key="child.name"
+  append-icon = mdi-pencil
   :node ="child"
   :depth="depth + 1"
   @click="goToItem(item)"
   />
 </div>
 </div>
+
 </template>
 
 
@@ -34,12 +37,12 @@ import itemsJson from '../jsonFiles/items.json'
         BoldTitle: Boolean,
         depth:{
           type: Number,
-          
+         
           default:0,
         }
       },
       data(){
-        return{ 
+        return{
           expanded: this.shouldBeExpanded,
           items: [],
         }
@@ -84,16 +87,16 @@ import itemsJson from '../jsonFiles/items.json'
     color: white;
    background-color: rgb(48, 47, 47);
    
-   /* margin-right: 100rem;
-   margin-bottom: 4px;
+   /* 100rem;
+    4px;
     */
 
   }
   #Tree p{
-    
+   
     padding-bottom: 2rem;
-   /* margin-right: 100rem;
-   margin-bottom: 4px;
+   /* 100rem;
+    4px;
    white-space: nowrap;  */
 
   }
@@ -101,7 +104,7 @@ import itemsJson from '../jsonFiles/items.json'
  
  }
  .root{
-  
+ 
  }
  .tree{
 
@@ -109,6 +112,11 @@ import itemsJson from '../jsonFiles/items.json'
  }
 .Rooibos{
   color: brown;
-  
+ 
+}
+
+#arrow {
+  color: white;
 }
 </style>
+
