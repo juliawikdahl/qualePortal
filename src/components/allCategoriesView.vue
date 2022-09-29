@@ -2,14 +2,21 @@
   <div>
   <div v-for="item in itemsToShow" :key="item.Name">
       <div class="itemCards"> 
-        <p>{{item.Name}}</p> 
-        <button class="btnGit">Git</button>
-        <router-link :to="{ path: `/item/${item.Id}` }" >
+        <div class="icons">
+          <button class="btnGit">View on GitHub</button>
+        <router-link :to="{path:`/item/${item.Id}`,query:{openEdit: true}}">
+          <v-icon>mdi-pencil</v-icon>  
         </router-link>
+        </div>
         <div class="itemName">{{item.Name}}</div>
         <div class="itemDes">{{item.Description}}</div>
       
-        <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
+        <div class="codeTitle">Json 
+        <div class="swap">
+            <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
+        <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
+        </div>
+      </div> 
         
         <div class="itemIndex"><div v-if="showJson">{{item.Index}}</div>
         <div v-else> {{item.xmlCode}}</div></div>
@@ -70,9 +77,6 @@
 
 
 <style scoped>
-
-<style>
-  
   .swap {
    display: flex;
    justify-content: end;
