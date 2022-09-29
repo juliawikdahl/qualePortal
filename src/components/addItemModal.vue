@@ -120,11 +120,9 @@
                               sm="12"
                             >
                               <v-textarea
-                                auto-grow
                                 label="Description"
-                                rows="3"
+                                rows="2"
                                 :rules="rules"
-                                row-height="20"
                               ></v-textarea>
                           </v-col>
                   </div>

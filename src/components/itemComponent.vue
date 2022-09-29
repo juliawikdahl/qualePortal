@@ -66,13 +66,24 @@
 <template>
   <div>
       <div class="itemCards">  
-        <button class="btnGit">Git</button>
-        <v-icon @click="showModal=true"> mdi-pencil </v-icon>
+        <div class="icons">
+          <button class="btnGit">View on GitHub</button>
+        <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
+          <v-icon>mdi-pencil</v-icon>  
+        </router-link>
+        </div>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       </div>
       <div>
-        <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
+
+        <div class="codeTitle">Json 
+        <div class="swap">
+            <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
+        <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
+        </div>
+      </div> 
+
         <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
         <div v-else> {{selectedItem.xmlCode}}</div></div>
 
@@ -85,6 +96,11 @@
 
 
 <style scoped>
+
+.icons {
+  display: flex;
+  justify-content: end;
+}
 
 .modal-overlay {
     position: absolute;
@@ -112,6 +128,10 @@
   
 
 
+   }
+   .swap {
+    display: flex;
+    justify-content: end;
    }
    .container-is-blurred {
       filter: blur(3px);
