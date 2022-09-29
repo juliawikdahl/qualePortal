@@ -1,73 +1,70 @@
 <template>
-    <div>
-    <div v-for="selectedItem in underCategories" :key="selectedItem.Name">
-        <div class="itemCards"> 
-          <p>{{selectedItem.Name}}</p> 
-          <!-- <button class="btnGit">Git</button>
-          <router-link :to="{ path: `/item/${selectedItem.Id}` }" >
-          </router-link>
-          <div class="itemName">{{selectedItem.Name}}</div>
-          <div class="itemDes">{{selectedItem.Description}}</div>
+  <div>
+  <div v-for="item in itemsToShow" :key="item.Name">
+      <div class="itemCards"> 
+        <p>{{item.Name}}</p> 
+        <button class="btnGit">Git</button>
+        <router-link :to="{ path: `/item/${item.Id}` }" >
+        </router-link>
+        <div class="itemName">{{item.Name}}</div>
+        <div class="itemDes">{{item.Description}}</div>
+      
+        <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
         
-       
-          <div class="codeTitle">Json <button  class="btnConvert" @click="showJson=!showJson">Xml</button><button class="btnCopy" @click="copyToClipboard()">Copy</button></div> 
-          <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
-          <div v-else> {{selectedItem.xmlCode}}</div></div> -->
-       
-        </div>   
-      </div> 
-  </div>
-  
-  </template>
+        <div class="itemIndex"><div v-if="showJson">{{item.Index}}</div>
+        <div v-else> {{item.xmlCode}}</div></div>
+     
+      </div>   
+    </div> 
+</div>
+
+</template>
 
 
 
 <script>
-    import itemsJson from '../jsonFiles/items.json'
-    import categoryJson from '../jsonFiles/categories.json'
-  
-  
-      export default{
-      name: "allCategoriesView",
-      mounted() {
+  import itemsJson from '../jsonFiles/items.json'
+  import categoryJson from '../jsonFiles/categories.json'
+
+
+    export default{
+    name: "allCategoriesView",
+    mounted() {
+      this.getUnderCategories();
+    },
+    watch: {
+      '$route.params.name': function() {
         this.getUnderCategories();
       },
-      watch: {
-        '$route.params.name': function() {
-          this.getUnderCategories();
-        },
-      },
-      data() {
-          return {
-              items: itemsJson.Components,
-              categories: categoryJson.Categories,
-              selectedItems: [],
-              underCategories: [],
-              itemsToShow: []
+    },
+    data() {
+        return {
+            items: itemsJson.Components,
+            categories: categoryJson.Categories,
+            selectedItems: [],
+            underCategories: [],
+            itemsToShow: [],
+            showJson: true
+            
 
-          };},
-          methods: {
-        getUnderCategories: function() {
-       
-         this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
-         const ids = this.underCategories.map(uc => uc.forEach(u => { return u.ComponentsIds}));
-
-         console.log('ids är:', ids);
-        },
-        // getItemByUndercategoryName(name) {
-        //   const underCategory = this.getUndercategoryByName(name);
-        //   if(!underCategory) {
-        //     // 404 underkategorin finns ej
-        //     return null;
-        //   }
-        //   this.selectedItems = this.items.filter(item => underCategory.ComponentsIds.includes(item.Id));
-        // },
-      }
+        };},
+        methods: {
+      getUnderCategories: function() {
      
-    
-  }
-      </script>
+       this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
+       // flat 2 ggr pga nestlad array..
+       const ids = this.underCategories.map( (uc) => { return uc.map(uc => uc.ComponentsIds)}).flat().flat()
 
+      // hämta alla items som har ID som finns med i någon av underkategorierna
+      const items = this.items.filter(item => ids.includes(item.Id));
+      this.itemsToShow = items;
+      }
+    
+    }
+   
+  
+}
+    </script>
 
 
 

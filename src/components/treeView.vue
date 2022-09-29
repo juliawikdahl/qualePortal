@@ -1,3 +1,4 @@
+
 <template>
   <div id="Tree">
 <div
@@ -34,12 +35,12 @@ import itemsJson from '../jsonFiles/items.json'
         BoldTitle: Boolean,
         depth:{
           type: Number,
-          
+         
           default:0,
         }
       },
       data(){
-        return{ 
+        return{
           expanded: this.shouldBeExpanded,
           items: [],
         }
@@ -63,6 +64,7 @@ import itemsJson from '../jsonFiles/items.json'
         getItemsFromJson: function() {
           this.items = this.matchingIds();
         },
+        
       },
         watch: {
         expanded(isExpanded) {
@@ -84,16 +86,16 @@ import itemsJson from '../jsonFiles/items.json'
     color: white;
    background-color: rgb(48, 47, 47);
    
-   /* margin-right: 100rem;
-   margin-bottom: 4px;
+   /* 100rem;
+    4px;
     */
 
   }
   #Tree p{
-    
+   
     padding-bottom: 2rem;
-   /* margin-right: 100rem;
-   margin-bottom: 4px;
+   /* 100rem;
+    4px;
    white-space: nowrap;  */
 
   }
@@ -101,7 +103,7 @@ import itemsJson from '../jsonFiles/items.json'
  
  }
  .root{
-  
+ 
  }
  .tree{
 
@@ -109,7 +111,7 @@ import itemsJson from '../jsonFiles/items.json'
  }
 .Rooibos{
   color: brown;
-  
+ 
 }
 
 #arrow {
