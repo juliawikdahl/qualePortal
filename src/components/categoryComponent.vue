@@ -93,6 +93,9 @@
    margin-left: 5rem;
    margin-right: 23rem;
    margin-top: 5rem;
+   max-width: 100rem;
+   min-width: 70rem;
+   
 }
 .itemName{
    
@@ -103,11 +106,11 @@
 }
 .itemDes{
     
-  max-width: 70rem;
+ 
  margin-bottom: 1rem;
 }
 .itemIndex{
-  max-width: 75rem;
+
     padding: 1rem;
     border-radius: 5px;
     background-color: rgb(182, 209, 224);
