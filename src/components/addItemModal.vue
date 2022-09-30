@@ -251,10 +251,7 @@ text-align: center;
    .container-is-blurred {
       filter: blur(3px);
    }
-   .modal-is-active {
-     display: block;
-    cursor: pointer ;
-   }
+
 
 
   /* .v-messages__message {

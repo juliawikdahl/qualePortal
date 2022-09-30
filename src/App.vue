@@ -32,7 +32,7 @@ import footerFooter from './components/footer.vue'
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
   <div id="staticView">
     <div >
-  <treeView v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
+  <treeView style ="cursor:pointer;" v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
    </div>  
  <router-view/>
  

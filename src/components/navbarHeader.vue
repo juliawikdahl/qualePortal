@@ -35,7 +35,7 @@ export default {
 
 .Navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: rgba(15, 15, 15, 0.867);
   padding: 30px;
 }
@@ -43,6 +43,7 @@ export default {
 .logo {
     max-height: 150px;
 max-width: 200px;
+
 }
 /* .btn {
  
