@@ -65,7 +65,7 @@
 
         .search-b {
           margin-top: 35px;
-          margin-left: 200px;
+          margin-left: 20px;
           height: 52px;
           width: 400px;
         }

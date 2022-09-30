@@ -103,12 +103,12 @@ import AddItemModal from './addItemModal.vue';
      top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    position: fixed;
+    position: absolute;
     display: table;
     
     }
     .add {
-    position: absolute;
+   
     margin-left: 0.4rem;
     margin-top: 2.7rem;
     }

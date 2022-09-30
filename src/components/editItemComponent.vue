@@ -224,47 +224,6 @@ background-color: white;
     padding-left: 0.5rem;
 }
 
-.itemCards{
-   margin-left: 6rem;
-   margin-right: 23rem;
-   margin-top: 5rem;
-}
-.itemName{
-    font-weight: 800;
-    font-size: 2rem;
-    margin-top: 1rem; margin-bottom: 1rem;
-}
-.itemDes{
-  max-width: 70rem;
-  margin-bottom: 1rem;
-}
-.itemIndex{
-    max-width: 75rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    background-color: rgb(182, 209, 224);
-    margin-left: 5.5rem;
-    min-height: 10rem;
-    margin-bottom: 0.3rem;
-}
-.codeTitle{
- padding-left: 1rem;
- margin-left: 5.5rem;
- max-width: 75rem;
- border-radius: 5px;
- color:rgb(94, 108, 116);
- background-color: rgb(182, 209, 224);
- padding-left: 3.rem;
- border: 1px solid rgb(147, 169, 182);
-}
-.btnConvert{
-  margin-left: 66rem;
-  margin-right: 0.7rem;
-}
-.btnGit{
-  margin-left: 70rem;
-  margin-right: 0.7rem;
-}
 
 
 
