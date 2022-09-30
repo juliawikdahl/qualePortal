@@ -98,13 +98,13 @@
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       
-<div class="hej">
+
         <div class="codeTitle">Json 
 
         <div class="swap">
             <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
         <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
-        </div>
+       
       </div> 
 </div>
         <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
@@ -113,6 +113,7 @@
         
       
       <div class="metaData">
+        <span>Tags:</span>
           <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}}</a>
           <a @click="gotoUndercategory(underCategory)" v-for="underCategory in itemUndercategories" :key="underCategory.Name">{{underCategory}}</a>
         </div> 
@@ -132,10 +133,7 @@
   }
 
 
-   .swap {
-    display: flex;
-    justify-content: flex-end;
-   }
+   
 
 .itemCards{
    margin-left: 5rem;
@@ -169,16 +167,20 @@
   margin-bottom: 0.3rem;
 }
 .codeTitle{
-  border-radius: 5px;
+    display: flex;
+    border-radius: 5px;
     color:rgb(94, 108, 116);
     background-color: rgb(182, 209, 224);
-   padding-left: 1rem;
+    padding-left: 1rem;
   
  border: 1px solid rgb(147, 169, 182);
 }
 .btnConvert{
 margin-left: 66rem;
 margin-right: 0.7rem;
+}
+.swap {
+  margin-left: 63rem;
 }
 .btnGit {
   color: black;
