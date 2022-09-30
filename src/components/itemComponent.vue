@@ -49,7 +49,9 @@
     methods: {
         getItemById(id) {
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
-            console.log("getITemBYId", id);
+            if (!this.selectedItem)
+            this.$router.push({ name: '404error' });
+            
         },
         copyToClipboard: function () {
             navigator.clipboard.writeText(this.selectedItem.Index);
