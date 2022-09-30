@@ -113,7 +113,7 @@
         
       
       <div class="metaData">
-          <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}}, </a>
+          <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}}</a>
           <a @click="gotoUndercategory(underCategory)" v-for="underCategory in itemUndercategories" :key="underCategory.Name">{{underCategory}}</a>
         </div> 
      </div>   
@@ -194,7 +194,7 @@ margin-right: 0.7rem;
 
 .metaData{
   color: blue;
-  text-underline-position: blue 1rem;
+
 }
 
 
