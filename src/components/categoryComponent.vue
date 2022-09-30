@@ -126,7 +126,6 @@
   margin-bottom: 0.3rem;
 }
 .codeTitle{
-  padding: 0.3rem;
     display: flex;
     border-radius: 5px;
     color:rgb(94, 108, 116);
@@ -140,7 +139,7 @@ margin-left: 66rem;
 margin-right: 0.7rem;
 }
 .swap {
-  margin-left: 69rem;
+  margin-left: 67rem;
 }
 .btnGit {
   color: black;
