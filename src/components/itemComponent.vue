@@ -21,6 +21,8 @@
         return {
             items: itemsJson.Components,
             selectedItem: {},
+            itemUndercategories: [],
+            itemCategory: [],
             category: [],
             selectedCategories: [],
             underCategory: [],
@@ -49,14 +51,35 @@
     methods: {
         getItemById(id) {
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
-            console.log("getITemBYId", id);
+            this.getItemMetaData();
         },
         copyToClipboard: function () {
-            navigator.clipboard.writeText(this.selectedItem.Index);
+            navigator.clipboard.writeText(this.selectedItem.Index || this.selectedItem.xmlCode );
         },
         getCategoryNames: function () {
             return categoryJson.Categories.map((cat) => { return cat.name; });
         },
+        gotoCategory(category) {
+          this.$router.push({ name: "category", params: {name: category} });
+        },
+        gotoUndercategory(underCategory) {
+          this.$router.push({ name: "undercategory", params: {name: underCategory} });
+        },
+        getItemMetaData() {
+          this.itemCategory = [];
+          this.itemUndercategories = [];
+          categoryJson.Categories.forEach(cat => {
+            cat.underCategories.forEach(uc => {
+              if(uc.ComponentsIds.includes(this.selectedItem.Id))
+              {
+                if(!this.itemCategory.includes(cat.name))
+                this.itemCategory.push(cat.name);
+                if(!this.itemUndercategories.includes(uc.Name))
+                this.itemUndercategories.push(uc.Name);
+              }
+            })
+          })
+        }
     },
     components: { EditItemComponent }
 }
@@ -67,7 +90,7 @@
   <div>
       <div class="itemCards">  
         <div class="icons">
-          <button class="btnGit">View on GitHub</button>
+          <a href="http://www.google.com" class="btnGit">View on GitHub</a>
           <v-icon @click="showModal = true">mdi-pencil</v-icon>  
         </div>
         <div class="itemName">{{selectedItem.Name}}</div>
@@ -86,16 +109,27 @@
         <div v-else> {{selectedItem.xmlCode}}</div></div>
 
         
-      </div>   
-
+      
+      <div class="metaData">
+          <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}}, </a>
+          <a @click="gotoUndercategory(underCategory)" v-for="underCategory in itemUndercategories" :key="underCategory.Name">{{underCategory}}</a>
+        </div> 
+     </div>   
     <EditItemComponent :item="selectedItem" @closeModal="showModal=false" v-if="showModal" />
   </div>
 </template>
 
 
 <style scoped>
-<style>
-  
+  .metadata {
+    padding: 0rem 0.5rem;
+    cursor: pointer;
+  }
+  .metadata:hover {
+    color: blue;
+  }
+
+
    .swap {
     display: flex;
     justify-content: end;
@@ -145,7 +179,7 @@ margin-left: 66rem;
 margin-right: 0.7rem;
 }
 .btnGit {
-
+  color: black;
   border: 1px solid rgb(4, 4, 4);
   margin-right: 10px;
   padding: 5px;
@@ -156,7 +190,10 @@ margin-right: 0.7rem;
   justify-content: end;
 }
 
-
+.metaData{
+  color: blue;
+  text-underline-position: blue 1rem;
+}
 
 
 </style>
