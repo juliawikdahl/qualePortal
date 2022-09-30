@@ -132,9 +132,6 @@
     color: blue;
   }
 
-
-   
-
 .itemCards{
    margin-left: 5rem;
    margin-right: 23rem;
@@ -159,9 +156,7 @@
 
     padding: 1rem;
     border-radius: 5px;
-    background-color: rgb(182, 209, 224);
-    
-    
+    background-color: rgb(182, 209, 224); 
     min-height: 10rem;
     min-width: 35rem;
   margin-bottom: 0.3rem;
