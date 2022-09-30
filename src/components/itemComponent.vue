@@ -54,7 +54,7 @@
             this.getItemMetaData();
         },
         copyToClipboard: function () {
-            navigator.clipboard.writeText(this.selectedItem.Index || this.selectedItem.xmlCode );
+            navigator.clipboard.writeText(this.selectedItem.Index );
         },
         getCategoryNames: function () {
             return categoryJson.Categories.map((cat) => { return cat.name; });
