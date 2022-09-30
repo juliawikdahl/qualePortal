@@ -81,12 +81,18 @@
       }
     }
     </script>
-<style>
-  
-   .swap {
-    display: flex;
-    justify-content: flex-end;
-   }
+
+<style scoped>
+  .metadata {
+    padding: 0rem 0.5rem;
+    cursor: pointer;
+  }
+  .metadata:hover {
+    color: blue;
+  }
+
+
+   
 
 .itemCards{
    margin-left: 5rem;
@@ -120,19 +126,24 @@
   margin-bottom: 0.3rem;
 }
 .codeTitle{
-  border-radius: 5px;
+  padding: 0.3rem;
+    display: flex;
+    border-radius: 5px;
     color:rgb(94, 108, 116);
     background-color: rgb(182, 209, 224);
-   padding-left: 1rem;
-    min-width: 30rem;
+    padding-left: 1rem;
+  
  border: 1px solid rgb(147, 169, 182);
 }
 .btnConvert{
 margin-left: 66rem;
 margin-right: 0.7rem;
 }
+.swap {
+  margin-left: 69rem;
+}
 .btnGit {
-
+  color: black;
   border: 1px solid rgb(4, 4, 4);
   margin-right: 10px;
   padding: 5px;
@@ -140,7 +151,12 @@ margin-right: 0.7rem;
 }
 .icons {
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
+}
+
+.metaData{
+  color: blue;
+
 }
 
 

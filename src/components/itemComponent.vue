@@ -167,6 +167,7 @@
   margin-bottom: 0.3rem;
 }
 .codeTitle{
+  padding: 0.3rem;
     display: flex;
     border-radius: 5px;
     color:rgb(94, 108, 116);
