@@ -74,7 +74,7 @@
         },
         
        copyToClipboard: function(index){
-        navigator.clipboard.writeText(this.selectedItem.Index)
+        navigator.clipboard.writeText(index)
 
        },
        
