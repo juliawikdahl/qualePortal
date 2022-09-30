@@ -52,7 +52,7 @@
         getItemById(id) {
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
-            this.$router.push({ name: 'notfound' });
+            this.$router.push({ name: '404error' });
             
         },
         copyToClipboard: function () {
@@ -134,7 +134,7 @@
 
    .swap {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
    }
 
 .itemCards{
@@ -189,7 +189,7 @@ margin-right: 0.7rem;
 }
 .icons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .metaData{

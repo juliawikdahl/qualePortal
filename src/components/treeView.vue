@@ -3,9 +3,9 @@
   <div id="Tree">
 <div
 class="node">
-<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`,  'font-weight': `${depth < 1 ? '600' : '300'}`}" > {{node.name}} {{node.Name}} </p>
-<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'"> <v-icon id="arrow"  style="color:white" > mdi-chevron-down </v-icon>
-<!-- <p @click="goToItem(item)" v-for="item in items" :key="item.Name" :class="item.Name">{{item.Name}} <v-icon>mdi-chevron-down</v-icon></p> -->
+<p @click="showCategory()"  class="tree" :style="{'margin-left': `${depth < 1 ? `2` : `3`}rem`,'font-size': `${BoldTitle ? '1.7rem' : '1.2rem'}`,  'font-weight': `${depth < 1 ? '600' : '300'}`}" >  {{node.name}} <v-icon  v-if="depth == 0" id="arrow"  style="color:white" > mdi-chevron-down </v-icon> {{node.Name}} </p>
+<div v-if="expanded && items.length > 0" :style="'margin-left: 3rem'"> 
+
 </div>
 </div>
 <div v-if="expanded">

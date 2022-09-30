@@ -79,7 +79,7 @@
 <style scoped>
   .swap {
    display: flex;
-   justify-content: end;
+   justify-content: flex-end;
   }
 
 .itemCards{
@@ -134,7 +134,7 @@ margin-right: 0.7rem;
 }
 .icons {
  display: flex;
- justify-content: end;
+ justify-content: flex-end;
 }
 
 
