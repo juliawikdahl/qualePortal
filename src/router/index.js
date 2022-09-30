@@ -4,6 +4,7 @@ import homePage from '../views/homePage.vue'
 import itemPage from '../views/itemPage.vue'
 import categoryPage from '../views/categoryPage.vue'
 import allCategoriesView from '../components/allCategoriesView.vue'
+import errorPage from '../views/errorPage.vue'
 
 Vue.use(VueRouter)
 
@@ -13,11 +14,6 @@ const routes = [
     name: 'home',
     component: homePage,
   },
-  // {
-  //   path: '/login',
-  //   component: signinPage,
-  
-  // },
   {
     name: 'category',
     path: '/category/:name',
@@ -32,6 +28,11 @@ const routes = [
     name: 'item',
     path: '/item/:id',
     component: itemPage,
+  },
+  {
+    name: '404error',
+    path: 'notfound',
+    component: errorPage,
   }
 ]
 

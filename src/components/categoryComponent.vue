@@ -57,7 +57,6 @@
         getItemByUndercategoryName(name) {
           const underCategory = this.getUndercategoryByName(name);
           if(!underCategory) {
-            // 404 underkategorin finns ej
             return null;
           }
           this.selectedItems = this.items.filter(item => underCategory.ComponentsIds.includes(item.Id));
@@ -66,7 +65,7 @@
           let underCat = null
           this.categories.forEach((cat) => {
             cat.underCategories.filter(uc => {
-              if(uc.Name == name) {
+              if(uc?.Name == name) {
                 underCat = uc;
               }
             })
