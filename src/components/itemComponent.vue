@@ -57,8 +57,12 @@
             
         },
         copyToClipboard: function () {
+          if (this.showJson){
             navigator.clipboard.writeText(this.selectedItem.Index );
-        },
+          }
+          else{
+            navigator.clipboard.writeText(this.selectedItem.xmlCode )}
+        }, 
         getCategoryNames: function () {
             return categoryJson.Categories.map((cat) => { return cat.name; });
         },
@@ -142,19 +146,14 @@
    
 }
 .itemName{
-   
     font-weight: 800;
     font-size: 2rem;
- 
   margin-top: 1rem; margin-bottom: 1rem;
 }
 .itemDes{
-    
- 
  margin-bottom: 1rem;
 }
 .itemIndex{
-
     padding: 1rem;
     border-radius: 5px;
     background-color: rgb(182, 209, 224); 
