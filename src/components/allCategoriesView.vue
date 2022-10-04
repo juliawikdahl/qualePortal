@@ -60,10 +60,10 @@
       getUnderCategories: function() {
      
        this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
-       // flat 2 ggr pga nestlad array..
+    
        const ids = this.underCategories.map( (uc) => { return uc.map(uc => uc.ComponentsIds)}).flat().flat()
 
-      // hämta alla items som har ID som finns med i någon av underkategorierna
+      
       const items = this.items.filter(item => ids.includes(item.Id));
       this.itemsToShow = items;
       },
@@ -171,4 +171,4 @@ margin-right: 0.7rem;
 }
 
     
-    </style>
+ </style>
