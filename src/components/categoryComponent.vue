@@ -15,7 +15,7 @@
 
         <div class="swap">
             <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
-            <v-icon @click="copyToClipboard(showJson ? item.Index : item.xmlCode)"> mdi-content-copy </v-icon>
+            <v-icon @click="copyToClipboard(showJson ? selectedItem.Index : selectedItem.xmlCode)"> mdi-content-copy </v-icon>
         </div>
       </div> 
         
