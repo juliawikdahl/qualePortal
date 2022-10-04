@@ -23,8 +23,8 @@
         <div v-if="showJson"> {{selectedItem.Index}} </div>
         <div v-else> {{selectedItem.xmlCode}}</div>
       </div>
-      <div>tags:
-      <a @click="gotoCategory(category)" v-for="category in getCategoryMetaData(selectedItem.Id)" :key="category">{{category}}</a></div>
+      <div class="metaData">Tags:
+      <a @click="gotoCategory(category)" v-for="category in getCategoryMetaData(selectedItem.Id)" :key="category">{{category}} </a></div>
       </div>   
     </div> 
 </div>
@@ -174,6 +174,7 @@ margin-right: 0.7rem;
 
 .metaData{
   color: blue;
+  cursor:pointer;
 
 }
 

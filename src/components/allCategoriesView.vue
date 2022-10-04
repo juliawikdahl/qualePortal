@@ -20,8 +20,8 @@
         
         <div class="itemIndex"><div v-if="showJson">{{item.Index}}</div>
         <div v-else> {{item.xmlCode}}</div></div>
-      <div>tags:
-      <a @click="gotoUndercategory(underCategory)" v-for="underCategory in getUndercategoryMetaData(item.Id)" :key="underCategory">{{underCategory}}</a></div>
+      <div class="metaData">Tags:
+      <a @click="gotoUndercategory(underCategory)" v-for="underCategory in getUndercategoryMetaData(item.Id)" :key="underCategory">{{underCategory}} </a></div>
       </div>   
     </div> 
 </div>
@@ -167,6 +167,7 @@ margin-right: 0.7rem;
 
 .metaData{
   color: blue;
+  cursor:pointer;
 
 }
 
