@@ -223,7 +223,7 @@ text-align: center;
     }
 
     .modal-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -239,7 +239,7 @@ text-align: center;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
-    max-width: 1000px;
+    max-width: 1500px;
     height: 500px;
     width: 800px;
     display: table;
@@ -248,9 +248,9 @@ text-align: center;
 
 
    }
-   .container-is-blurred {
+   /* .container-is-blurred {
       filter: blur(3px);
-   }
+   } */
 
 
 
