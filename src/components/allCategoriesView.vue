@@ -14,7 +14,8 @@
         <div class="codeTitle">Json 
         <div class="swap">
             <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
-        <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
+       
+        <v-icon @click="copyToClipboard(showJson ? item.Index : item.xmlCode)"> mdi-content-copy </v-icon>
         </div>
       </div> 
         
@@ -83,7 +84,9 @@
       gotoUndercategory(underCategory) {
         this.$router.push({ name: "undercategory", params: {name: underCategory} });
       },
-    
+      copyToClipboard: function(index){
+        navigator.clipboard.writeText(index)
+       },
     }
    
   
