@@ -23,7 +23,8 @@
         <div v-if="showJson"> {{selectedItem.Index}} </div>
         <div v-else> {{selectedItem.xmlCode}}</div>
       </div>
-     
+      <div>tags:
+      <a @click="gotoCategory(category)" v-for="category in getCategoryMetaData(selectedItem.Id)" :key="category">{{category}}</a></div>
       </div>   
     </div> 
 </div>
@@ -75,8 +76,26 @@
         
        copyToClipboard: function(index){
         navigator.clipboard.writeText(index)
-
        },
+       getCategoryMetaData(itemId) {
+          this.itemCategory = [];
+          categoryJson.Categories.forEach(cat => {
+            cat.underCategories.forEach(uc => {
+              if(uc.ComponentsIds.includes(itemId))
+              {
+                if(!this.itemCategory.includes(cat.name))
+                this.itemCategory.push(cat.name);
+              }
+            })
+          })
+          return this.itemCategory;
+        },
+        gotoCategory(category) {
+          this.$router.push({ name: "category", params: {name: category} });
+        },
+        gotoUndercategory(underCategory) {
+          this.$router.push({ name: "undercategory", params: {name: underCategory} });
+        },
        
       }
     }

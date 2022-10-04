@@ -20,7 +20,8 @@
         
         <div class="itemIndex"><div v-if="showJson">{{item.Index}}</div>
         <div v-else> {{item.xmlCode}}</div></div>
-     
+      <div>tags:
+      <a @click="gotoUndercategory(underCategory)" v-for="underCategory in getUndercategoryMetaData(item.Id)" :key="underCategory">{{underCategory}}</a></div>
       </div>   
     </div> 
 </div>
@@ -65,7 +66,23 @@
       // hämta alla items som har ID som finns med i någon av underkategorierna
       const items = this.items.filter(item => ids.includes(item.Id));
       this.itemsToShow = items;
-      }
+      },
+      getUndercategoryMetaData(itemId) {
+        this.itemUndercategories = [];
+        categoryJson.Categories.forEach(cat => {
+          cat.underCategories.forEach(uc => {
+            if(uc.ComponentsIds.includes(itemId))
+            {
+              if(!this.itemUndercategories.includes(uc.Name))
+              this.itemUndercategories.push(uc.Name);
+            }
+          })
+        })
+        return this.itemUndercategories;
+      },
+      gotoUndercategory(underCategory) {
+        this.$router.push({ name: "undercategory", params: {name: underCategory} });
+      },
     
     }
    

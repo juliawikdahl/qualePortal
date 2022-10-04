@@ -53,6 +53,7 @@
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
             this.$router.push({ name: '404error' });
+            this.getItemMetaData();
             
         },
         copyToClipboard: function () {
@@ -114,7 +115,7 @@
       
       <div class="metaData">
         <span>Tags:</span>
-          <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}}</a>
+          <a @click="gotoCategory(category)" v-for="category in itemCategory" :key="category.name">{{category}} </a>
           <a @click="gotoUndercategory(underCategory)" v-for="underCategory in itemUndercategories" :key="underCategory.Name">{{underCategory}}</a>
         </div> 
      </div>   
