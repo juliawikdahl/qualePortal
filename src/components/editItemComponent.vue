@@ -1,19 +1,20 @@
 <script>
-  import categoryJson from '../jsonFiles/categories.json'
+ 
   import itemsJson from '../jsonFiles/items.json'
    export default{
     name: "editItemComponent",
     props : {
           item: {}
       },
-  mounted() {
-      this.category = this.getCategoryNames();
-      this.getCategoryByItemId();
+
+      created() {
+      this.fetchCategories();
     },
     data() {
       return{
         items: itemsJson.Components,
         category: [],
+        categories: [],
         selectedCategories: [],
         underCategory: [],
         selectedUnderCategories: [],
@@ -29,9 +30,14 @@
     watch: {
       selectedCategories: function(newVals) {
       let underCategories = [];
-      categoryJson.Categories?.forEach(element => {
+      this.categories?.forEach(element => {
       if(newVals.includes(element.name)) {
-        underCategories.push(element.underCategories.map(uc => uc.Name));
+            underCategories.push(element.underCategories.map(uc => uc.Name));
+            element.underCategories.map(uc => { 
+              if(!this.underCategory.includes(uc.Name)) {
+                this.underCategory.push(uc.Name);
+              }
+            })
           }
           
         });
@@ -39,8 +45,15 @@
       }
     },
     methods: {
+       fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.categories = await response.json()
+          
+          this.category = this.getCategoryNames();
+          this.getCategoryByItemId();
+        },
       getCategoryByItemId: function() {
-        categoryJson.Categories?.forEach((cat) => {
+        this.categories?.forEach((cat) => {
           cat.underCategories.forEach(uc => 
             {
               if (uc.ComponentsIds.includes(this.item.Id)) {
@@ -48,14 +61,16 @@
                 // Ifall kategorin redan finns med så lgäg ej in igen
                 if(!this.selectedCategories.includes(cat.name))
                   this.selectedCategories.push(cat.name);
-                this.selectedUnderCategories.push(uc.Name);
+                if(!this.selectedUnderCategories.includes(uc.Name))
+                  this.selectedUnderCategories.push(uc.Name);
               }
             }
           )
         })
       },
      getCategoryNames: function() {
-        return categoryJson.Categories.map((cat) => { return cat.name });
+      console.log('this.categories:', this.categories)
+        return this.categories.map((cat) => { return cat.name });
       },
      
     }

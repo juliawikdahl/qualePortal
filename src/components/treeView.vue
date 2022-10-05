@@ -80,8 +80,8 @@ import itemsJson from '../jsonFiles/items.json'
   #Tree{
    
     white-space: nowrap;
-   max-width: 15rem;
-   min-width: 15rem;
+   max-width: 17rem;
+   min-width: 17rem;
     height: auto;
     color: white;
    background-color: rgb(48, 47, 47);

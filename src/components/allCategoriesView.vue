@@ -38,15 +38,12 @@
 
     export default{
     name: "allCategoriesView",
-    created() {
-      this.fetchCategories();
-    },
     mounted() {
-      this.getUnderCategories();
+      this.fetchCategories();
     },
     watch: {
       '$route.params.name': function() {
-        this.getUnderCategories();
+        this.fetchCategories();
       },
     },
     data() {
@@ -60,11 +57,12 @@
             
 
         };},
-        methods: {
+        methods: {  
           fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
-          this.categories = await response.json()
-          this.getItemMetaData();
+          this.categories = await response.json();
+          
+          this.getUnderCategories();
         },
       getUnderCategories: function() {
      

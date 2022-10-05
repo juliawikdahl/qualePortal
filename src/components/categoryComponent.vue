@@ -37,7 +37,7 @@
     export default{
       name: "categoryComponent",
       mounted() {
-        this.getItemByUndercategoryName(this.$route.params.name);
+      this.fetchCategories();
       },
       data() {
         return{
@@ -50,14 +50,14 @@
     },        
       watch: {
         '$route.params.name': function() {  
-          this.getItemByUndercategoryName(this.$route.params.name);
+          this.fetchCategories();
         }
       },
       methods: {
         fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
-          this.getItemMetaData();
+          this.getItemByUndercategoryName(this.$route.params.name);
         },
 
         getItemByUndercategoryName(name) {
