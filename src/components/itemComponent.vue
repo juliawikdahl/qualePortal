@@ -1,10 +1,12 @@
 <script>
   import itemsJson from '../jsonFiles/items.json'
-  import categoryJson from '../jsonFiles/categories.json'
   import EditItemComponent from './editItemComponent.vue';
 
     export default{
     name: "itemComponent",
+    created() {
+      this.fetchCategories();
+    },
     mounted() {
         this.getItemById(this.$route.params.id);
         this.category = this.getCategoryNames();
@@ -19,6 +21,7 @@
     },
     data() {
         return {
+            categories: [],
             items: itemsJson.Components,
             selectedItem: {},
             itemUndercategories: [],
@@ -40,7 +43,7 @@
         },
         selectedCategories: function (newVals) {
             let underCategories = [];
-            categoryJson.Categories?.forEach(element => {
+            this.categories?.forEach(element => {
                 if (newVals.includes(element.name)) {
                     underCategories.push(element.underCategories.map(uc => uc.Name));
                 }
@@ -49,11 +52,15 @@
         }
     },
     methods: {
+        fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.categories = await response.json()
+          this.getItemMetaData();
+        },
         getItemById(id) {
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
             this.$router.push({ name: '404error' });
-            this.getItemMetaData();
             
         },
         copyToClipboard: function () {
@@ -64,7 +71,7 @@
             navigator.clipboard.writeText(this.selectedItem.xmlCode )}
         }, 
         getCategoryNames: function () {
-            return categoryJson.Categories.map((cat) => { return cat.name; });
+            return this.categories.map((cat) => { return cat.name; });
         },
         gotoCategory(category) {
           this.$router.push({ name: "category", params: {name: category} });
@@ -75,7 +82,7 @@
         getItemMetaData() {
           this.itemCategory = [];
           this.itemUndercategories = [];
-          categoryJson.Categories.forEach(cat => {
+          this.categories.forEach(cat => {
             cat.underCategories.forEach(uc => {
               if(uc.ComponentsIds.includes(this.selectedItem.Id))
               {

@@ -33,7 +33,6 @@
 
 <script>
    import itemsJson from '../jsonFiles/items.json'
-   import categoryJson from '../jsonFiles/categories.json'
    
     export default{
       name: "categoryComponent",
@@ -43,7 +42,7 @@
       data() {
         return{
           items: itemsJson.Components,
-          categories: categoryJson.Categories,
+          categories: [],
           selectedItems: [],
           showModal: false,
           showJson: true
@@ -55,6 +54,12 @@
         }
       },
       methods: {
+        fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.categories = await response.json()
+          this.getItemMetaData();
+        },
+
         getItemByUndercategoryName(name) {
           const underCategory = this.getUndercategoryByName(name);
           if(!underCategory) {
@@ -79,7 +84,7 @@
        },
        getCategoryMetaData(itemId) {
           this.itemCategory = [];
-          categoryJson.Categories.forEach(cat => {
+          this.categories?.forEach(cat => {
             cat.underCategories.forEach(uc => {
               if(uc.ComponentsIds.includes(itemId))
               {

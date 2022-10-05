@@ -1,5 +1,4 @@
 <script>
-import root from './jsonFiles/categories.json'
 import navbarHeader from './components/navbarHeader.vue'
 import treeView from './components/treeView.vue'
 import footerFooter from './components/footer.vue'
@@ -7,14 +6,19 @@ import footerFooter from './components/footer.vue'
 
   export default {
     name: "App",
-    mounted() {
+    created() {
+      this.fetchCategories();
     },
     data() {
         return{
-
-          root,   
-          
+          root: []  
       }
+    },
+    methods: {
+      fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.root = await response.json()
+        },
     },
     components: {
     navbarHeader,
@@ -32,7 +36,7 @@ import footerFooter from './components/footer.vue'
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
   <div id="staticView">
     <div >
-  <treeView style ="cursor:pointer;" v-for="cat in root.Categories" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
+  <treeView style ="cursor:pointer;" v-for="cat in root" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
    </div>  
  <router-view/>
  
