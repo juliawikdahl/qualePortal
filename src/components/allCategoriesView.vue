@@ -33,11 +33,14 @@
 
 <script>
   import itemsJson from '../jsonFiles/items.json'
-  import categoryJson from '../jsonFiles/categories.json'
+ 
 
 
     export default{
     name: "allCategoriesView",
+    created() {
+      this.fetchCategories();
+    },
     mounted() {
       this.getUnderCategories();
     },
@@ -49,7 +52,7 @@
     data() {
         return {
             items: itemsJson.Components,
-            categories: categoryJson.Categories,
+            categories: [],
             selectedItems: [],
             underCategories: [],
             itemsToShow: [],
@@ -58,6 +61,11 @@
 
         };},
         methods: {
+          fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.categories = await response.json()
+          this.getItemMetaData();
+        },
       getUnderCategories: function() {
      
        this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
@@ -70,7 +78,7 @@
       },
       getUndercategoryMetaData(itemId) {
         this.itemUndercategories = [];
-        categoryJson.Categories.forEach(cat => {
+        this.categories.forEach(cat => {
           cat.underCategories.forEach(uc => {
             if(uc.ComponentsIds.includes(itemId))
             {
