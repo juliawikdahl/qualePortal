@@ -1,5 +1,4 @@
 <script>
-  import itemsJson from '../jsonFiles/items.json'
   import EditItemComponent from './editItemComponent.vue';
 
     export default{
@@ -22,7 +21,7 @@
     data() {
         return {
             categories: [],
-            items: itemsJson.Components,
+            items: [],
             selectedItem: {},
             itemUndercategories: [],
             itemCategory: [],
@@ -55,8 +54,15 @@
         fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
+          this.fetchItems();
+        },
+
+        fetchItems: async function() {
+          const response = await fetch('http://localhost:8084/quickui/items');
+          this.items = await response.json()
           this.getItemMetaData();
         },
+
         getItemById(id) {
             this.selectedItem = this.items.filter(item => item.Id == id)[0];
             if (!this.selectedItem)

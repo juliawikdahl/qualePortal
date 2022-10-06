@@ -32,7 +32,6 @@
 </template>
 
 <script>
-   import itemsJson from '../jsonFiles/items.json'
    
     export default{
       name: "categoryComponent",
@@ -41,7 +40,7 @@
       },
       data() {
         return{
-          items: itemsJson.Components,
+          items: [],
           categories: [],
           selectedItems: [],
           showModal: false,
@@ -58,6 +57,12 @@
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
           this.getItemByUndercategoryName(this.$route.params.name);
+        },
+
+        fetchItems: async function() {
+          const response = await fetch('http://localhost:8084/quickui/items');
+          this.items = await response.json()
+          this.getItemMetaData();
         },
 
         getItemByUndercategoryName(name) {
