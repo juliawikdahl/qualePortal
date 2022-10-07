@@ -55,6 +55,7 @@
             itemsToShow: [],
             showJson: true
             
+            
 
         };},
         methods: {  
