@@ -50,6 +50,7 @@
           this.getCategoryByItemId();
           this.fetchItems();
         },
+        //
 
         fetchItems: async function() {
           const response = await fetch('http://localhost:8084/quickui/items');
