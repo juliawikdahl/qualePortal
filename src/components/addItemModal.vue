@@ -16,7 +16,25 @@
           this.category = this.getCategoryNames();
 
         },
+
+          createItem: async function() {
+            const rawResponse = await fetch('http://localhost:8084/quickui/items', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({Name: this.title, Description: this.description, gitURL: this.git, Index: this.code, categoryIds: [ "3f0f8292-73d6-45f7-bc46-edd3918928a9",
+            "fedec1d2-2eb3-479d-b944-3095d1eb2007"]})
+            });
+            const content = await rawResponse.json();
+
+            console.log(content);
+          }
+
       },
+
+
    
       watch: {
         selectedCategories: function(newVals) {
@@ -40,7 +58,10 @@
         rules: [
         value => !!value || 'Required.',
         ],
-        title:''
+        title:'',
+        description: '',
+        code: '',
+        git: '',
         
       
     }),
@@ -116,7 +137,7 @@
                             ></v-text-field>
                           </v-col>
 
-                          <input class="url" type="url" placeholder="Git url.." />
+                          <input class="url" v-model="git" type="url" placeholder="Git url.." />
                         </v-row>
                       </v-container>
                     </v-form>
@@ -127,6 +148,7 @@
                               sm="12"
                             >
                               <v-textarea
+                              v-model="description"
                                 label="Description"
                                 rows="2"
                                 :rules="rules"
@@ -136,13 +158,14 @@
              
                   <v-container fluid>
                       <v-textarea
+                      v-model="code"
                       :rules="rules"
                         autocomplete="Code"
                         label="Code"
                       ></v-textarea>
                 </v-container>
 
-                 <button class="add-button"   @click="showModal =false, Consoletest()" >Add</button>
+                 <button class="add-button"   @click="showModal =false, createItem()" >Add</button>
             
          </div>
            
