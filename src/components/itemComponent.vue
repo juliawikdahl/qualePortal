@@ -7,7 +7,6 @@
       this.fetchCategories();
     },
     mounted() {
-        this.getItemById(this.$route.params.id);
         this.category = this.getCategoryNames();
       
         if(this.$route.query.openEdit) {
@@ -15,13 +14,12 @@
         
           this.$router.push(this.$route.path);
         }
-        this.getItemById(this.$route.params.id);
         this.category = this.getCategoryNames();
     },
     data() {
         return {
             categories: [],
-            items: [],
+            itemsJson: [],
             selectedItem: {},
             itemUndercategories: [],
             itemCategory: [],
@@ -59,12 +57,14 @@
 
         fetchItems: async function() {
           const response = await fetch('http://localhost:8084/quickui/items');
-          this.items = await response.json()
+          this.itemsJson = await response.json()
+          this.getItemById(this.$route.params.id);
           this.getItemMetaData();
         },
 
         getItemById(id) {
-            this.selectedItem = this.items.filter(item => item.Id == id)[0];
+            console.log('itemjson', this.itemJson)
+            this.selectedItem = this.itemsJson.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
             this.$router.push({ name: '404error' });
             

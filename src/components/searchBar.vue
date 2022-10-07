@@ -1,22 +1,25 @@
 <script>
-     import ItemJson from '../jsonFiles/items.json'
-
-     
     export default{
           name: 'searchBar',
-          mounted() {
-        this.items = this.getItems();
+          created() {
+            this.fetchItems()
       },
       methods: {
         getItems: function() {
-          return ItemJson.Components.map((i) => { return i.Name });
-        },       
+          return this.itemsJson.map((i) => { return i.Name });
+        },
+        fetchItems: async function() {
+          const response = await fetch('http://localhost:8084/quickui/items');
+          this.itemsJson = await response.json()
+
+          this.items = this.getItems();
+        },    
       },
       watch: {
         searchedItem() {
            if(this.searchedItem) 
            {
-              const item = ItemJson.Components.filter((item) => 
+              const item = this.itemsJson.filter((item) => 
               {
                 return item.Name == this.searchedItem
               })[0];
@@ -28,6 +31,7 @@
         },
       },
       data:() => ({
+          itemsJson: [],
           items: [],
           searchedItem: ''
       })

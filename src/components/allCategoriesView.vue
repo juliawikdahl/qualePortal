@@ -32,13 +32,13 @@
 
 
 <script>
-  import itemsJson from '../jsonFiles/items.json'
  
 
 
     export default{
     name: "allCategoriesView",
     mounted() {
+      console.log('inside mounted')
       this.fetchCategories();
     },
     watch: {
@@ -48,7 +48,7 @@
     },
     data() {
         return {
-            items: itemsJson.Components,
+            itemsJson: [],
             categories: [],
             selectedItems: [],
             underCategories: [],
@@ -61,7 +61,12 @@
           fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json();
-          
+          this.fetchItems();
+        },
+
+        fetchItems: async function() {
+          const response = await fetch('http://localhost:8084/quickui/items');
+          this.itemsJson = await response.json()
           this.getUnderCategories();
         },
       getUnderCategories: function() {
@@ -71,7 +76,7 @@
        const ids = this.underCategories.map( (uc) => { return uc.map(uc => uc.ComponentsIds)}).flat().flat()
 
       
-      const items = this.items.filter(item => ids.includes(item.Id));
+      const items = this.itemsJson.filter(item => ids.includes(item.Id));
       this.itemsToShow = items;
       },
       getUndercategoryMetaData(itemId) {

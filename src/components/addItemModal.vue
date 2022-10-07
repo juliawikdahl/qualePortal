@@ -1,21 +1,27 @@
 <script>
       // import Modal from "vue-bs-modal";
-      import categoryJson from '../jsonFiles/categories.json'
       export default {
       name: "addItemModal",
       mounted() {
-        this.category = this.getCategoryNames();
+        this.fetchCategories();
       },
       methods: {
         getCategoryNames: function() {
-          return categoryJson.Categories.map((cat) => { return cat.name });
+          return this.categories.map((cat) => { return cat.name });
+        },
+        fetchCategories: async function() {
+          const response = await fetch('http://localhost:8084/quickui/categories');
+          this.categories = await response.json()
+
+          this.category = this.getCategoryNames();
+
         },
       },
    
       watch: {
         selectedCategories: function(newVals) {
         let underCategories = [];
-        categoryJson.Categories?.forEach(element => {
+        this.categories.forEach(element => {
         if(newVals.includes(element.name)) {
           underCategories.push(element.underCategories.map(uc => uc.Name));
             }
@@ -30,6 +36,7 @@
         category: [],
         selectedCategories: [],
         underCategory: [],
+        categories: [],
         rules: [
         value => !!value || 'Required.',
         ],

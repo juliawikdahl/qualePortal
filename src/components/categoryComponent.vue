@@ -37,10 +37,11 @@
       name: "categoryComponent",
       mounted() {
       this.fetchCategories();
+      
       },
       data() {
         return{
-          items: [],
+          itemsJson: [],
           categories: [],
           selectedItems: [],
           showModal: false,
@@ -55,14 +56,14 @@
       methods: {
         fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
-          this.categories = await response.json()
-          this.getItemByUndercategoryName(this.$route.params.name);
+          this.categories = await response.json()  
+          this.fetchItems();
         },
 
         fetchItems: async function() {
           const response = await fetch('http://localhost:8084/quickui/items');
-          this.items = await response.json()
-          this.getItemMetaData();
+          this.itemsJson = await response.json()
+          this.getItemByUndercategoryName(this.$route.params.name);
         },
 
         getItemByUndercategoryName(name) {
@@ -70,7 +71,7 @@
           if(!underCategory) {
             return null;
           }
-          this.selectedItems = this.items.filter(item => underCategory.ComponentsIds.includes(item.Id));
+          this.selectedItems =  this.itemsJson.filter(item => underCategory.ComponentsIds.includes(item.Id));
         },
         getUndercategoryByName(name) {
           let underCat = null

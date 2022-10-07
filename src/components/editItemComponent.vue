@@ -1,6 +1,4 @@
 <script>
- 
-  import itemsJson from '../jsonFiles/items.json'
    export default{
     name: "editItemComponent",
     props : {
@@ -12,7 +10,7 @@
     },
     data() {
       return{
-        items: itemsJson.Components,
+        itemsJson: [],
         category: [],
         categories: [],
         selectedCategories: [],
@@ -48,10 +46,16 @@
        fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
-          
           this.category = this.getCategoryNames();
           this.getCategoryByItemId();
+          this.fetchItems();
         },
+
+        fetchItems: async function() {
+          const response = await fetch('http://localhost:8084/quickui/items');
+          this. itemsJson = await response.json()
+        },
+
       getCategoryByItemId: function() {
         this.categories?.forEach((cat) => {
           cat.underCategories.forEach(uc => 
