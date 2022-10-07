@@ -110,20 +110,21 @@
   <div>
       <div class="itemCards">  
         <div class="icons">
-          <a href="http://www.google.com" class="btnGit">View on GitHub</a>
+          <a :href= "selectedItem.gitUrl" class="btnGit">View on GitHub</a>
           <v-icon @click="showModal = true">mdi-pencil</v-icon>  
         </div>
         <div class="itemName">{{selectedItem.Name}}</div>
         <div class="itemDes">{{selectedItem.Description}}</div>
       
 
-        <div class="codeTitle">Json 
+        <div  class="codeTitle"><p v-if="showJson">Json</p><p v-else>Xml</p>
+            
 
-        <div class="swap">
-            <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
-        <v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
-       
-      </div> 
+<div class="swap">
+    <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
+<v-icon @click="copyToClipboard()"> mdi-content-copy </v-icon>
+
+  </div>  
 </div>
         <div class="itemIndex"><div v-if="showJson">{{selectedItem.Index}}</div>
         <div v-else> {{selectedItem.xmlCode}}</div></div>

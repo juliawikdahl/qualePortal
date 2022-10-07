@@ -3,7 +3,7 @@
   <div v-for="item in itemsToShow" :key="item.Name">
       <div class="itemCards"> 
         <div class="icons">
-          <button class="btnGit">View on GitHub</button>
+          <a :href= "item.gitUrl" class="btnGit">View on GitHub</a>
         <router-link :to="{path:`/item/${item.Id}`,query:{openEdit: true}}">
           <v-icon>mdi-pencil</v-icon>  
         </router-link>
@@ -11,7 +11,7 @@
         <div class="itemName">{{item.Name}}</div>
         <div class="itemDes">{{item.Description}}</div>
       
-        <div class="codeTitle">Json 
+        <div class="codeTitle"><p v-if="showJson">Json</p><p v-else>Xml</p>
         <div class="swap">
             <v-icon @click="showJson=!showJson"> mdi-swap-horizontal </v-icon>
        
@@ -55,7 +55,7 @@
             itemsToShow: [],
             showJson: true
             
-            
+
 
         };},
         methods: {  
