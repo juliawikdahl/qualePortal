@@ -165,7 +165,6 @@
   display: flex;
   justify-content: flex-end;
 }
-
 .metaData{
   color: blue;
   cursor:pointer;
