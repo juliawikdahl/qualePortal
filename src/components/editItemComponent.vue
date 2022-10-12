@@ -217,6 +217,15 @@
                       rows="2"
                     ></v-textarea>
               </v-container>
+              <v-btn 
+              @click="('showmodal')"
+                    class="delete-button"
+                    outlined
+                    color="indigo"
+                  > 
+                   <v-icon >mdi-delete-forever</v-icon>Delete
+              </v-btn>
+             
                <button class="edit-button" @click= "showModal =false, editItem()" >Edit</button>
           
        </div>
@@ -279,6 +288,10 @@ background-color: white;
     margin-left: 0.8rem;
     border-bottom: 1px solid rgb(138, 137, 137);
     padding-left: 0.5rem;
+}
+.delete-button{
+ display: flex;
+ justify-content:right;
 }
 
 
