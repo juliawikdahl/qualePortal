@@ -51,8 +51,6 @@
           },
       
 
-      
-   
       watch: {
         selectedCategories: function(newVals) {
         let underCategories = [];
@@ -88,7 +86,7 @@
  
 </script>
 
-<template v-slot:selection="{ attrs, item, select, selected }">
+<template >
 <div>
       <div class="modal-overlay" v-if="showModal" @click="showModal =false"></div>
       
@@ -105,7 +103,7 @@
                 
            
     <div class="modal" v-if="showModal"> 
-              <div>
+             
                 <v-container fluid >
                   <v-row align="center" >
                     <v-col cols="12" sm="6" >
@@ -133,14 +131,10 @@
                         multiple
                       > </v-select>
                     </v-col>
-
-                    
                   </v-row>
                 </v-container>
             
-              </div>
-
-        <div class="add-form">
+  
                 <v-form>
                       <v-container>
                         <v-row>
@@ -162,7 +156,7 @@
                       </v-container>
                     </v-form>
 
-                 <div class="des">
+                
                         <v-col
                               cols="12"
                               sm="12"
@@ -174,7 +168,7 @@
                                 :rules="rules"
                               ></v-textarea>
                           </v-col>
-                  </div>
+                
              
                   <v-container fluid>
                       <v-textarea
@@ -187,7 +181,6 @@
 
                 <v-container fluid>
                     <v-textarea
-      
                       v-model="codeX"
                       label="Code XML"
                       :rules="rules"
@@ -197,17 +190,65 @@
                  <button class="add-button"   @click="showModal =false, createItem()" >Add</button>
             
          </div>
-           
-        
-    </div>
-              
-    
-   
 </div>
 
 </template>
 
 <style scoped>
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 98;
+    background-color: rgba(0, 0, 0, 0.7);
+    }
+
+   .btn-add {
+   color: white;
+   border-radius: 50%;
+   -webkit-transition: all 0.7s ease;
+   transition: all 0.7s ease;
+   cursor: pointer;
+   margin-top: 26px;
+   margin-left: 2rem;
+   
+    
+   }
+
+.btn-add:hover {
+box-shadow: 0 0 8px rgb(152, 150, 150);
+padding:  30px;
+text-align: center;
+}
+
+.modal {
+    position: fixed;
+    padding: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    max-width: 1500px;
+    height: 500px;
+    width: 800px;
+    display: table;
+    color: black;
+    background-color: rgb(255, 255, 255);
+   }
+
+   .url {
+    height: 40px;
+    width: 330px;
+    margin-top: 1.4rem;
+    margin-left: 0.8rem;
+    border-bottom: 1px solid rgb(138, 137, 137);
+    padding-left: 0.5rem;
+}
+  
+
+
 .add-button {
   display: flex;
     justify-content: center;
@@ -228,93 +269,13 @@
   background-color: white;
         color: black;
 }
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 98;
-    background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .modal {
-    position: fixed;
-    padding: 3rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    max-width: 1500px;
-    height: 500px;
-    width: 800px;
-    display: table;
-    color: black;
-    background-color: rgb(255, 255, 255);
 
 
-   }
-.inputs {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-.title{
-  margin-right: 3rem;
-  width: 200px;
-}
-.code {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: 2rem;
-}
-.url {
-    height: 40px;
-    width: 330px;
-    margin-top: 1.4rem;
-    margin-left: 0.8rem;
-    border-bottom: 1px solid rgb(138, 137, 137);
-    padding-left: 0.5rem;
-}
-.des {
-  display: flex;
-}
-
-  
-   .btn-add {
-   color: white;
-   border-radius: 50%;
-   -webkit-transition: all 0.7s ease;
-   transition: all 0.7s ease;
-   cursor: pointer;
-   margin-top: 26px;
-   margin-left: 2rem;
-   
-    
-   }
-
-.btn-add:hover {
-box-shadow: 0 0 8px rgb(152, 150, 150);
-padding:  30px;
-text-align: center;
-}
-
-.add {
-    position: absolute;
-     margin-left: 0.4rem; 
-    margin-top: 2.7rem; 
-    }
-
-  
-   /* .container-is-blurred {
-      filter: blur(3px);
-   } */
+ 
 
 
 
-  /* .v-messages__message {
-    color: red !important;
-  } */
+
+
 
 </style>

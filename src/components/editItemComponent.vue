@@ -119,9 +119,8 @@
     <div class="modal-overlay" >
       <div class="modal"> 
       <div>
-              <v-btn 
-              @click="$emit('closeModal')"
-                    class="close"
+              <v-btn class="close"
+              @click="$emit('closeModal')" 
                     outlined
                     medium
                     fab
@@ -164,7 +163,7 @@
             </div>
           
       
-      <div class="add-form">
+      <div class="edit-form">
               <v-form>
                     <v-container>
                       <v-row>
@@ -216,14 +215,13 @@
                       rows="2"
                     ></v-textarea>
               </v-container>
-              <v-btn 
-             
-              @click="('showmodal')"
+
+
+              <v-btn
                     class="delete-button"
                     outlined
-                    color="indigo"
                   > 
-                   <v-icon >mdi-delete-forever</v-icon>Delete
+                   <v-icon >mdi-delete-forever</v-icon>Delete Item
             </v-btn>
                <button class="edit-button" @click= "$emit('closeModal'), editItem()" >Edit</button>
           
@@ -247,7 +245,7 @@
 
     .modal {
     position: fixed;
-    padding: 1rem;
+    padding: 2rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -260,6 +258,25 @@
     background-color: rgb(255, 255, 255);
 
    }
+   .close {
+  margin-left: 49rem;
+  position: absolute;
+  z-index: 1;
+  margin-top: -5.5rem;
+  color: white;
+}
+.url {
+    height: 40px;
+    width: 330px;
+    margin-top: 1.3rem;
+    margin-left: 1rem;
+    border-bottom: 1px solid rgb(138, 137, 137);
+    padding-left: 0.5rem;
+}
+.delete-button {
+  color: red;
+  margin-left: 0.8rem;
+}
    .edit-button {
   display: flex;
     justify-content: center;
@@ -274,19 +291,13 @@
     background-color: rgba(15, 15, 15, 0.867);
     color: white;
     border-radius: 5px;
+    margin-top: 2rem;
 }
 .edit-button:hover {
 background-color: white;
       color: black;
 }
-.url {
-    height: 40px;
-    width: 330px;
-    margin-top: 1.4rem;
-    margin-left: 0.8rem;
-    border-bottom: 1px solid rgb(138, 137, 137);
-    padding-left: 0.5rem;
-}
+
 
 
 </style>

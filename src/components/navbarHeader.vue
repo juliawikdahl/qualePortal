@@ -28,10 +28,7 @@ export default {
 
 
 <style>
-.Title {
-    display: flex;
 
-}
 
 .Navbar {
   display: flex;
@@ -45,18 +42,6 @@ export default {
 max-width: 200px;
 
 }
-/* .btn {
- 
- color: black;
- border-radius: 25px;
- padding: 0.6rem 1.4rem;
- margin-top: 30px;
- background-color: white;
- -webkit-transition: all 0.7s ease;
- transition: all 0.7s ease;
- cursor: pointer;
- 
- } */
  
 .btn {
     font-size: 18px;
