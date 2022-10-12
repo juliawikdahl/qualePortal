@@ -25,7 +25,6 @@
               })[0];
               
               // Route to item
-              console.log('item', item);
               this.$router.push({ name: 'item', params: { id: item.Id } });
            }
         },

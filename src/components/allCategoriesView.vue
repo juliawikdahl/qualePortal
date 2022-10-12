@@ -38,7 +38,6 @@
     export default{
     name: "allCategoriesView",
     mounted() {
-      console.log('inside mounted')
       this.fetchCategories();
     },
     watch: {

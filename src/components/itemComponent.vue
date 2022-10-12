@@ -4,9 +4,10 @@
     export default{
     name: "itemComponent",
     created() {
-      this.fetchCategories();
     },
     mounted() {
+        this.fetchCategories();
+
         this.category = this.getCategoryNames();
       
         if(this.$route.query.openEdit) {
@@ -14,7 +15,7 @@
         
           this.$router.push(this.$route.path);
         }
-        this.category = this.getCategoryNames();
+      
     },
     data() {
         return {
@@ -36,6 +37,15 @@
     },
     watch: {
         "$route.params.id": function () {
+          this.fetchCategories();
+
+this.category = this.getCategoryNames();
+
+if(this.$route.query.openEdit) {
+  this.showModal = true;
+
+  this.$router.push(this.$route.path);
+}
             this.getItemById(this.$route.params.id);
         },
         selectedCategories: function (newVals) {
@@ -52,7 +62,8 @@
         fetchCategories: async function() {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
-          this.fetchItems();
+          this.fetchItems();     
+         
         },
 
         fetchItems: async function() {
@@ -63,7 +74,6 @@
         },
 
         getItemById(id) {
-            console.log('itemjson', this.itemJson)
             this.selectedItem = this.itemsJson.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
             this.$router.push({ name: '404error' });
@@ -137,7 +147,9 @@
           <a @click="gotoUndercategory(underCategory)" v-for="underCategory in itemUndercategories" :key="underCategory.Name">{{underCategory}} </a>
         </div> 
      </div>   
-    <EditItemComponent :item="selectedItem" @closeModal="showModal=false" v-if="showModal" />
+
+    <EditItemComponent   :item="selectedItem"  v-if="showModal" />
+    <!-- @closeModal="showModal=false" -->
   </div>
 </template>
 

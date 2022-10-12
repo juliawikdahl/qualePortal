@@ -18,6 +18,7 @@
         selectedUnderCategories: [],
         showModal:false,
         title: this.item.Name,
+        git: this.item.gitURL,
         des: this.item.Description,
         codeJ:this.item.Index,
         codeX: this.item.xmlCode,
@@ -50,20 +51,53 @@
           this.getCategoryByItemId();
           this.fetchItems();
         },
-        
 
         fetchItems: async function() {
           const response = await fetch('http://localhost:8084/quickui/items');
-          this. itemsJson = await response.json()
+          this.itemsJson = await response.json()
         },
+
+        editItem: async function() {
+          await fetch('http://localhost:8084/quickui/items', {
+              method: 'PUT',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(
+                {
+                  Name: this.title, 
+                  Description: this.des, 
+                  gitURL: this.git, 
+                  Index: this.codeJ, 
+                  categoryIds: this.getCategoryIdByName()
+                })
+            });
+          this.$emit('closeModal');
+        },
+
+        getCategoryIdByName: function() {
+            const ids = [];
+            this.categories.map((cat) => {
+              if(this.selectedCategories.includes(cat.name)) {
+                ids.push(cat.Id);
+                cat.underCategories.map(uc => {
+                  if (this.selectedUnderCategories.includes(uc.Name))
+                  {
+                    ids.push(uc.Id);
+                  }
+                })
+              }
+            })
+            return ids;
+        },
+
 
       getCategoryByItemId: function() {
         this.categories?.forEach((cat) => {
           cat.underCategories.forEach(uc => 
             {
               if (uc.ComponentsIds.includes(this.item.Id)) {
-                // vi hitta itemet som är med i componentIdsListan
-                // Ifall kategorin redan finns med så lgäg ej in igen
                 if(!this.selectedCategories.includes(cat.name))
                   this.selectedCategories.push(cat.name);
                 if(!this.selectedUnderCategories.includes(uc.Name))
@@ -74,7 +108,6 @@
         })
       },
      getCategoryNames: function() {
-      console.log('this.categories:', this.categories)
         return this.categories.map((cat) => { return cat.name });
       },
      
@@ -83,9 +116,21 @@
 </script>
 
 <template>
-<div class="modal-overlay">
+  <div>
+    <div class="modal-overlay" >
       <div class="modal"> 
-            <div>
+      <div>
+              <v-btn 
+              @click="$emit('closeModal')"
+                    class="close"
+                    outlined
+                    medium
+                    fab
+                    color="indigo"
+                  >
+                    <v-icon>mdi-close</v-icon>
+              </v-btn>
+
               <v-container fluid >
                 <v-row align="center" >
                   <v-col cols="12" sm="6" >
@@ -117,8 +162,8 @@
                   
                 </v-row>
               </v-container>
-          
             </div>
+          
       
       <div class="add-form">
               <v-form>
@@ -137,7 +182,7 @@
                           ></v-text-field>
                         </v-col>
       
-                        <input class="url" type="url" placeholder="Git url.." />
+                        <input class="url" type="url" v-model="git" placeholder="Git url.." />
                       </v-row>
                     </v-container>
                   </v-form>
@@ -172,10 +217,11 @@
                       rows="2"
                     ></v-textarea>
               </v-container>
-               <button class="add-button"   @click="$emit('closeModal')" >Edit</button>
+               <button class="edit-button" @click= "showModal =false, editItem()" >Edit</button>
           
        </div>
   </div>
+</div>
 </div>
 </template>
 
@@ -205,18 +251,9 @@
     display: table;
     color: black;
     background-color: rgb(255, 255, 255);
-  
-
 
    }
-   .container-is-blurred {
-      filter: blur(3px);
-   }
-   .modal-is-active {
-     display: block;
-    cursor: pointer ;
-   }
-   .add-button {
+   .edit-button {
   display: flex;
     justify-content: center;
     border: 1px solid;
@@ -231,7 +268,7 @@
     color: white;
     border-radius: 5px;
 }
-.add-button:hover {
+.edit-button:hover {
 background-color: white;
       color: black;
 }
@@ -243,8 +280,6 @@ background-color: white;
     border-bottom: 1px solid rgb(138, 137, 137);
     padding-left: 0.5rem;
 }
-
-
 
 
 </style>

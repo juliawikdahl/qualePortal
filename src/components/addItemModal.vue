@@ -1,5 +1,5 @@
 <script>
-      // import Modal from "vue-bs-modal";
+
       export default {
       name: "addItemModal",
       mounted() {
@@ -18,23 +18,40 @@
         },
 
           createItem: async function() {
-            const rawResponse = await fetch('http://localhost:8084/quickui/items', {
+            await fetch('http://localhost:8084/quickui/items', {
               method: 'POST',
               headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({Name: this.title, Description: this.description, gitURL: this.git, Index: this.code, categoryIds: [ "3f0f8292-73d6-45f7-bc46-edd3918928a9",
-            "fedec1d2-2eb3-479d-b944-3095d1eb2007"]})
+              body: JSON.stringify({
+                Name: this.title, 
+                Description: this.description, 
+                gitURL: this.git, 
+                Index: this.code, 
+                categoryIds: this.getCategoryIdByName(), })
             });
-            const content = await rawResponse.json();
+          },
+          
+          getCategoryIdByName: function() {
+            const ids = [];
+            this.categories.map((cat) => {
+              if(this.selectedCategories.includes(cat.name)) {
+                ids.push(cat.Id);
+                cat.underCategories.map(uc => {
+                  if (this.selectedUnderCategories.includes(uc.Name))
+                  {
+                    ids.push(uc.Id);
+                  }
+                })
+              }
+            })
+            return ids;
+           } 
+          },
+      
 
-            console.log(content);
-          }
-
-      },
-
-
+      
    
       watch: {
         selectedCategories: function(newVals) {
@@ -53,6 +70,7 @@
         showModal:false,
         category: [],
         selectedCategories: [],
+        selectedUnderCategories: [],
         underCategory: [],
         categories: [],
         rules: [
@@ -62,6 +80,7 @@
         description: '',
         code: '',
         git: '',
+        codeX: '',
         
       
     }),
@@ -105,6 +124,7 @@
                     <v-col cols="12" sm="6" >
                       <v-select
                         :items="underCategory"
+                        v-model="selectedUnderCategories"
                         attach
                         clearable
                         solo
@@ -160,10 +180,19 @@
                       <v-textarea
                       v-model="code"
                       :rules="rules"
-                        autocomplete="Code"
-                        label="Code"
+                       
+                        label="Code JSON"
                       ></v-textarea>
                 </v-container>
+
+                <v-container fluid>
+                    <v-textarea
+      
+                      v-model="codeX"
+                      label="Code XML"
+                      :rules="rules"
+                    ></v-textarea>
+              </v-container>
 
                  <button class="add-button"   @click="showModal =false, createItem()" >Add</button>
             
@@ -199,6 +228,32 @@
   background-color: white;
         color: black;
 }
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 98;
+    background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal {
+    position: fixed;
+    padding: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    max-width: 1500px;
+    height: 500px;
+    width: 800px;
+    display: table;
+    color: black;
+    background-color: rgb(255, 255, 255);
+
+
+   }
 .inputs {
   align-items: center;
   display: flex;
@@ -228,7 +283,6 @@
 
   
    .btn-add {
-
    color: white;
    border-radius: 50%;
    -webkit-transition: all 0.7s ease;
@@ -252,32 +306,7 @@ text-align: center;
     margin-top: 2.7rem; 
     }
 
-    .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 98;
-    background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .modal {
-    position: fixed;
-    padding: 3rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    max-width: 1500px;
-    height: 500px;
-    width: 800px;
-    display: table;
-    color: black;
-    background-color: rgb(255, 255, 255);
-
-
-   }
+  
    /* .container-is-blurred {
       filter: blur(3px);
    } */
