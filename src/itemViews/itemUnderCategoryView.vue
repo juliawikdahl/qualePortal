@@ -5,7 +5,7 @@
         <div class="icons">
           <a :href= "selectedItem.gitUrl" class="btnGit">View on GitHub</a>
         <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
-          <v-icon>mdi-pencil</v-icon>  
+          <v-icon class="edit">mdi-pencil</v-icon>  
         </router-link>
         </div>
         
@@ -150,14 +150,18 @@
   margin-left: 73rem;
 }
 .btnGit {
-  color: white;
-  background-color: black;
+  color: black;
   border: 1px solid rgb(4, 4, 4);
   margin-right: 10px;
   padding: 5px;
   border-radius: 10px;
+  text-decoration: none;
+}
+.edit{
+  text-decoration: none;
 }
 .icons {
+  text-decoration: none;
   display: flex;
   justify-content: flex-end;
 }
@@ -167,24 +171,5 @@
   cursor:pointer;
 }
 
-.btnGit {
-  display: flex;
-    justify-content: center;
-    border: 1px solid;
-    width: 25rem;
-    height: 3rem;
-    text-align: center;
-    align-items: center;
-    display: grid;
-    margin: auto;
-    cursor: pointer;
-    background-color: rgba(15, 15, 15, 0.867);
-    color: white;
-    border-radius: 5px;
-}
 
-.btnGit:hover {
-  background-color: white;
-        color: black;
-}
 </style>
