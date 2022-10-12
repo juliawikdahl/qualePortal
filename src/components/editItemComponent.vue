@@ -216,6 +216,14 @@
                       rows="2"
                     ></v-textarea>
               </v-container>
+              <v-btn 
+              @click="('showmodal')"
+                    class="delete-button"
+                    outlined
+                    color="indigo"
+                  > 
+                   <v-icon >mdi-delete-forever</v-icon>Delete
+            </v-btn>
                <button class="edit-button" @click= "$emit('closeModal'), editItem()" >Edit</button>
           
        </div>
@@ -223,7 +231,6 @@
 </div>
 </div>
 </template>
-
 
 <style scoped>
 

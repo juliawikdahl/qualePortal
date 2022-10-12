@@ -30,11 +30,8 @@
 </template>
 
 
-
 <script>
  
-
-
     export default{
     name: "allCategoriesView",
     mounted() {
@@ -45,6 +42,7 @@
         this.fetchCategories();
       },
     },
+    
     data() {
         return {
             itemsJson: [],
