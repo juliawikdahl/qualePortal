@@ -113,7 +113,7 @@
     </script>
 
 <style scoped>
- .itemCards{
+  .itemCards{
    margin-left: 5rem;
    margin-right: 23rem;
    margin-top: 5rem;
@@ -133,6 +133,7 @@
   text-decoration: none;
 }
 
+
 .itemName{
     font-weight: 800;
     font-size: 2rem;
@@ -150,13 +151,25 @@
     padding-left: 1rem;
    border: 1px solid rgb(147, 169, 182);
 }
+
 .swap {
   margin-left: 73rem;
 }
+
+.itemIndex{
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgb(182, 209, 224); 
+    min-height: 10rem;
+    min-width: 35rem;
+    margin-bottom: 0.3rem;
+}
+
 .metaData{
   color: blue;
   cursor:pointer;
 }
+    
 
 
 </style>
