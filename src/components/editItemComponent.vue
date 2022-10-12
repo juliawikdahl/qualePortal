@@ -64,8 +64,7 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify(
-                {
+              body: JSON.stringify({
                   Name: this.title, 
                   Description: this.des, 
                   gitURL: this.git, 
@@ -217,7 +216,7 @@
                       rows="2"
                     ></v-textarea>
               </v-container>
-               <button class="edit-button" @click= "showModal =false, editItem()" >Edit</button>
+               <button class="edit-button" @click= "$emit('closeModal'), editItem()" >Edit</button>
           
        </div>
   </div>

@@ -148,8 +148,7 @@ if(this.$route.query.openEdit) {
         </div> 
      </div>   
 
-    <EditItemComponent   :item="selectedItem"  v-if="showModal" />
-    <!-- @closeModal="showModal=false" -->
+    <EditItemComponent   :item="selectedItem" @closeModal="showModal=false" v-if="showModal" />
   </div>
 </template>
 
