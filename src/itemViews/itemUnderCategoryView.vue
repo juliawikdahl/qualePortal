@@ -113,63 +113,41 @@
     </script>
 
 <style scoped>
-  .metadata {
-    padding: 0rem 0.5rem;
-    cursor: pointer;
-  }
-  .metadata:hover {
-    color: blue;
-  }
-
-
-   
-
-.itemCards{
+ .itemCards{
    margin-left: 5rem;
    margin-right: 23rem;
    margin-top: 5rem;
-   max-width: 100rem;
-   min-width: 70rem;
-   
+   max-width: 80rem;
+   min-width: 80rem;  
 }
 .itemName{
-   
     font-weight: 800;
     font-size: 2rem;
- 
-  margin-top: 1rem; margin-bottom: 1rem;
+    margin-top: 1rem; margin-bottom: 1rem;
 }
 .itemDes{
-    
- 
  margin-bottom: 1rem;
 }
 .itemIndex{
-
     padding: 1rem;
     border-radius: 5px;
-    background-color: rgb(182, 209, 224);
-    
-    
+    background-color: rgb(182, 209, 224); 
     min-height: 10rem;
     min-width: 35rem;
-  margin-bottom: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 .codeTitle{
+  padding: 0.3rem;
     display: flex;
     border-radius: 5px;
     color:rgb(94, 108, 116);
     background-color: rgb(182, 209, 224);
     padding-left: 1rem;
-  
- border: 1px solid rgb(147, 169, 182);
+   border: 1px solid rgb(147, 169, 182);
 }
-.btnConvert{
-margin-left: 66rem;
-margin-right: 0.7rem;
-}
+
 .swap {
-  margin-left: 67rem;
+  margin-left: 73rem;
 }
 .btnGit {
   color: black;
@@ -186,7 +164,6 @@ margin-right: 0.7rem;
 .metaData{
   color: blue;
   cursor:pointer;
-
 }
 
 

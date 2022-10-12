@@ -1,5 +1,5 @@
 <script>
-    import categoryComponent from '../components/categoryComponent.vue'
+    import categoryComponent from '../itemViews/itemUnderCategoryView.vue'
 
     
     export default{
