@@ -1,5 +1,5 @@
 <script>
-    import itemComponent from '../itemViews/itemComponentView.vue'
+    import itemComponent from '../itemViews/itemSearchView.vue'
 
     
     export default{
