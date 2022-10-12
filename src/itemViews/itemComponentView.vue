@@ -1,5 +1,5 @@
 <script>
-  import EditItemComponent from './editItemComponent.vue';
+  import EditItemComponent from '../components/editItemComponent.vue';
 
     export default{
     name: "itemComponent",
