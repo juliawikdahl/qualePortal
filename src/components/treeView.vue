@@ -69,7 +69,7 @@ import itemsJson from '../jsonFiles/items.json'
         watch: {
         expanded(isExpanded) {
           if (isExpanded) {
-            // hämta items
+          
             this.getItemsFromJson([]);
           }
         }
@@ -78,37 +78,17 @@ import itemsJson from '../jsonFiles/items.json'
 </script>
 <style scoped>
   #Tree{
-   
-    white-space: nowrap;
+   white-space: nowrap;
    max-width: 17rem;
    min-width: 17rem;
-    height: auto;
-    color: white;
+   color: white;
    background-color: rgb(48, 47, 47);
-   
-   /* 100rem;
-    4px;
-    */
-
   }
   #Tree p{
-   
     padding-bottom: 2rem;
-   /* 100rem;
-    4px;
-   white-space: nowrap;  */
-
   }
   .tree:hover {
-color: darkgray;
+    color: darkgray;
   }
 
-.Rooibos{
-  color: brown;
- 
-}
-
-#arrow {
-  color: white;
-}
 </style>
