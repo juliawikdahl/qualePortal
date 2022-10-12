@@ -162,8 +162,6 @@
     margin-bottom: 0.3rem;
 }
 
-
-
 .metaData{
   color: blue;
   cursor:pointer;
