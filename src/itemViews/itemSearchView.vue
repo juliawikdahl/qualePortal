@@ -162,6 +162,18 @@ if(this.$route.query.openEdit) {
    max-width: 80rem;
    min-width: 80rem;  
 }
+.icons {
+  display: flex;
+  justify-content: flex-end;
+}
+.btnGit {
+  color: black;
+  border: 1px solid rgb(4, 4, 4);
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
 .itemName{
     font-weight: 800;
     font-size: 2rem;
@@ -170,14 +182,7 @@ if(this.$route.query.openEdit) {
 .itemDes{
  margin-bottom: 1rem;
 }
-.itemIndex{
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: rgb(182, 209, 224); 
-    min-height: 10rem;
-    min-width: 35rem;
-    margin-bottom: 0.3rem;
-}
+
 .codeTitle{
   padding: 0.3rem;
     display: flex;
@@ -191,17 +196,17 @@ if(this.$route.query.openEdit) {
 .swap {
   margin-left: 73rem;
 }
-.btnGit {
-  color: black;
-  border: 1px solid rgb(4, 4, 4);
-  margin-right: 10px;
-  padding: 5px;
-  border-radius: 10px;
+
+.itemIndex{
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgb(182, 209, 224); 
+    min-height: 10rem;
+    min-width: 35rem;
+    margin-bottom: 0.3rem;
 }
-.icons {
-  display: flex;
-  justify-content: flex-end;
-}
+
+
 
 .metaData{
   color: blue;
