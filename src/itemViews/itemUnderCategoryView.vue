@@ -150,7 +150,8 @@
   margin-left: 73rem;
 }
 .btnGit {
-  color: black;
+  color: white;
+  background-color: black;
   border: 1px solid rgb(4, 4, 4);
   margin-right: 10px;
   padding: 5px;
@@ -166,5 +167,24 @@
   cursor:pointer;
 }
 
+.btnGit {
+  display: flex;
+    justify-content: center;
+    border: 1px solid;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    align-items: center;
+    display: grid;
+    margin: auto;
+    cursor: pointer;
+    background-color: rgba(15, 15, 15, 0.867);
+    color: white;
+    border-radius: 5px;
+}
 
+.btnGit:hover {
+  background-color: white;
+        color: black;
+}
 </style>
