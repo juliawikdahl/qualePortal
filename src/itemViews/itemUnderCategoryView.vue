@@ -5,7 +5,7 @@
         <div class="icons">
           <a :href= "selectedItem.gitUrl" class="btnGit">View on GitHub</a>
         <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
-          <v-icon>mdi-pencil</v-icon>  
+          <v-icon class="edit">mdi-pencil</v-icon>  
         </router-link>
         </div>
         
@@ -161,7 +161,6 @@
     min-width: 35rem;
     margin-bottom: 0.3rem;
 }
-
 .metaData{
   color: blue;
   cursor:pointer;

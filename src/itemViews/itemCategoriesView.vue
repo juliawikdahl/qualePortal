@@ -103,8 +103,6 @@
     </script>
 
 
-
-
 <style scoped>
   .itemCards{
    margin-left: 5rem;
