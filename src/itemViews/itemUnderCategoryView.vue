@@ -130,6 +130,7 @@
   margin-right: 10px;
   padding: 5px;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .itemName{
@@ -151,15 +152,6 @@
 }
 .swap {
   margin-left: 73rem;
-}
-
-.itemIndex{
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: rgb(182, 209, 224); 
-    min-height: 10rem;
-    min-width: 35rem;
-    margin-bottom: 0.3rem;
 }
 .metaData{
   color: blue;

@@ -172,6 +172,7 @@ if(this.$route.query.openEdit) {
   margin-right: 10px;
   padding: 5px;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .itemName{
