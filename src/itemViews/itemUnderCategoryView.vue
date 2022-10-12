@@ -157,11 +157,9 @@
   border-radius: 10px;
   text-decoration: none;
 }
-.edit{
-  text-decoration: none;
-}
+
 .icons {
-  text-decoration: none;
+ 
   display: flex;
   justify-content: flex-end;
 }
