@@ -3,7 +3,7 @@
   <div v-for="item in itemsToShow" :key="item.Name">
       <div class="itemCards"> 
         <div class="icons">
-          <a :href= "item.gitUrl" class="btnGit">View on GitHub</a>
+          <a :href= "item.gitURL" class="btnGit">View on GitHub</a>
         <router-link :to="{path:`/item/${item.Id}`,query:{openEdit: true}}">
           <v-icon>mdi-pencil</v-icon>  
         </router-link>
@@ -71,7 +71,7 @@
      
        this.underCategories = this.categories.filter(c => c.name == this.$route.params.name).map(c => c.underCategories);
     
-       const ids = this.underCategories.map( (uc) => { return uc.map(uc => uc.ComponentsIds)}).flat().flat()
+       const ids = this.underCategories?.map( (uc) => { return uc.map(uc => uc.ComponentsIds)}).flat().flat()
 
       
       const items = this.itemsJson.filter(item => ids.includes(item.Id));
@@ -141,6 +141,7 @@
     background-color: rgb(182, 209, 224);
     padding-left: 1rem;
    border: 1px solid rgb(147, 169, 182);
+   white-space: pre-wrap;
 }
 
 .swap {

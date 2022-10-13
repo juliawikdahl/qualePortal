@@ -3,7 +3,7 @@
   <div v-for="selectedItem in selectedItems" :key="selectedItem.Name">
       <div class="itemCards">  
         <div class="icons">
-          <a :href= "selectedItem.gitUrl" class="btnGit">View on GitHub</a>
+          <a :href= "selectedItem.gitURL" class="btnGit">View on GitHub</a>
         <router-link :to="{path:`/item/${selectedItem.Id}`,query:{openEdit: true}}">
           <v-icon class="edit">mdi-pencil</v-icon>  
         </router-link>

@@ -1,6 +1,6 @@
 <script>
     import searchBar from './searchBar.vue';
-import SigninComponent from './signinComponent.vue';
+import SigninComponent from '../modals/signinModal.vue';
     
 export default {
         name : 'navbarHeader',

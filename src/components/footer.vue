@@ -24,7 +24,7 @@
     min-width: 100%;
     clear: both;
     position:absolute;
- 
+
    padding-left: 0;
   
 }

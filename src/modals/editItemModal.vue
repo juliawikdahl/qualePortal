@@ -61,16 +61,26 @@
           await fetch('http://localhost:8084/quickui/items', {
               method: 'PUT',
               headers: {
-                'Accept': 'application/json',
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
+                  Id: this.item.Id,
                   Name: this.title, 
                   Description: this.des, 
                   gitURL: this.git, 
                   Index: this.codeJ, 
                   categoryIds: this.getCategoryIdByName()
                 })
+            });
+          this.$emit('closeModal');
+        },
+
+        deleteItem: async function() {
+          await fetch(`http://localhost:8084/quickui/items?id=${this.item.Id}`, {
+              method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json'
+              }
             });
           this.$emit('closeModal');
         },
@@ -220,6 +230,7 @@
               <v-btn
                     class="delete-button"
                     outlined
+                    @click="deleteItem()"
                   > 
                    <v-icon >mdi-delete-forever</v-icon>Delete Item
             </v-btn>

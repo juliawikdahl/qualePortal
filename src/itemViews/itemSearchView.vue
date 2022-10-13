@@ -1,10 +1,8 @@
 <script>
-  import EditItemComponent from '../components/editItemComponent.vue';
+  import EditItemComponent from '../modals/editItemModal.vue';
 
     export default{
     name: "itemComponent",
-    created() {
-    },
     mounted() {
         this.fetchCategories();
 
@@ -15,7 +13,6 @@
         
           this.$router.push(this.$route.path);
         }
-      
     },
     data() {
         return {
@@ -39,14 +36,13 @@
         "$route.params.id": function () {
           this.fetchCategories();
 
-this.category = this.getCategoryNames();
+          this.category = this.getCategoryNames();
 
-if(this.$route.query.openEdit) {
-  this.showModal = true;
+        if(this.$route.query.openEdit) {
+          this.showModal = true;
 
-  this.$router.push(this.$route.path);
-}
-            this.getItemById(this.$route.params.id);
+          this.$router.push(this.$route.path);
+        }
         },
         selectedCategories: function (newVals) {
             let underCategories = [];
@@ -63,7 +59,6 @@ if(this.$route.query.openEdit) {
           const response = await fetch('http://localhost:8084/quickui/categories');
           this.categories = await response.json()
           this.fetchItems();     
-         
         },
 
         fetchItems: async function() {
@@ -99,7 +94,7 @@ if(this.$route.query.openEdit) {
           this.itemCategory = [];
           this.itemUndercategories = [];
           this.categories.forEach(cat => {
-            cat.underCategories.forEach(uc => {
+            cat.underCategories?.forEach(uc => {
               if(uc.ComponentsIds.includes(this.selectedItem.Id))
               {
                 if(!this.itemCategory.includes(cat.name))
@@ -120,7 +115,7 @@ if(this.$route.query.openEdit) {
   <div>
       <div class="itemCards">  
         <div class="icons">
-          <a :href= "selectedItem.gitUrl" class="btnGit">View on GitHub</a>
+          <a :href= "selectedItem.gitURL" class="btnGit">View on GitHub</a>
           <v-icon @click="showModal = true">mdi-pencil</v-icon>  
         </div>
         <div class="itemName">{{selectedItem.Name}}</div>
@@ -148,7 +143,7 @@ if(this.$route.query.openEdit) {
         </div> 
      </div>   
 
-    <EditItemComponent   :item="selectedItem" @closeModal="showModal=false" v-if="showModal" />
+    <EditItemComponent :item="selectedItem" @closeModal="showModal=false" v-if="showModal && selectedItem.Id" />
   </div>
 </template>
 

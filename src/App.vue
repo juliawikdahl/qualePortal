@@ -4,6 +4,7 @@ import treeView from './components/treeView.vue'
 import footerFooter from './components/footer.vue'
 
 
+
   export default {
     name: "App",
     created() {
@@ -23,7 +24,7 @@ import footerFooter from './components/footer.vue'
     components: {
     navbarHeader,
     treeView,
-    footerFooter
+    footerFooter,
 
 }
 }
@@ -33,18 +34,23 @@ import footerFooter from './components/footer.vue'
   <template>
 
  <div>
- <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
-  <div id="staticView">
-    <div >
-  <treeView style ="cursor:pointer;" v-for="cat in root" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/>
-   </div>  
- <router-view/>
  
-   <div></div></div>
+ <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
+ <img class="berg" style="position: absolute; z-index: -99;" src="./icons/bergskiss.jpg" />
+  <div id="staticView">
+
+    <div > <treeView style ="cursor:pointer;" v-for="cat in root" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/> </div>  
+ 
+    <router-view/>
     
-<div>
-      <footerFooter/>
   </div>
+
+  <div>
+ 
+    </div>
+
+      <footerFooter/>
+ 
  </div>
 
   </template>

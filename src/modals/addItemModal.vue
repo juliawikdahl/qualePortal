@@ -16,8 +16,14 @@
           this.category = this.getCategoryNames();
 
         },
-
+          isValid: function() {
+            if(!this.title || !this.description || !this.git || !this.code || this.selectedCategories.length == 0 || this.selectedUnderCategories.length == 0)
+              return false;
+            return true;
+          },
           createItem: async function() {
+            if (!this.isValid())
+              return;
             await fetch('http://localhost:8084/quickui/items', {
               method: 'POST',
               headers: {
