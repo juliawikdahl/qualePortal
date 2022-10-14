@@ -49,10 +49,10 @@ import footerFooter from './components/footer.vue'
  
     </div>
 
-      <footerFooter/>
- 
+    
+ <footerFooter class="footer"/>
  </div>
-
+  
   </template>
   
 
@@ -65,5 +65,9 @@ import footerFooter from './components/footer.vue'
   #staticView{
     display:flex;
     
+  }
+  .footer{
+    display: flex-end;
+    align-items: flex-end;
   }
   </style>

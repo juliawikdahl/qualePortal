@@ -19,7 +19,7 @@
         </div>
       </div> 
         
-        <div class="itemIndex"><div v-if="showJson">{{item.Index}}</div>
+        <div class="itemIndex"><div v-if="showJson">{{item.Index}} </div>
         <div v-else> {{item.xmlCode}}</div></div>
       <div class="metaData">Tags:
       <a @click="gotoUndercategory(underCategory)" v-for="underCategory in getUndercategoryMetaData(item.Id)" :key="underCategory">{{underCategory}} </a></div>
@@ -96,6 +96,7 @@
       copyToClipboard: function(index){
         navigator.clipboard.writeText(index)
        },
+
     }
    
   
@@ -155,6 +156,7 @@
     min-height: 10rem;
     min-width: 35rem;
     margin-bottom: 0.3rem;
+    white-space: pre-wrap;
 }
 
 .metaData{
