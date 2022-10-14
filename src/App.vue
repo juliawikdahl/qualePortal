@@ -35,7 +35,7 @@ import footerFooter from './components/footer.vue'
  <div>
  
  <navbarHeader logo='https://quale.se/wp-content/themes/quale_theme/image/logo_white.svg'/>
- <img class="berg" style="position: absolute; z-index: -99;" src="./icons/bergskiss.jpg" />
+ <img class="background" style="position: absolute; z-index: -99;" src="./icons/bergskiss.jpg" />
   <div id="staticView">
 
     <div > <treeView style ="cursor:pointer;" v-for="cat in root" :key="cat.name" :node="cat" :shouldBeExpanded="true" :BoldTitle="true"/> </div>  
@@ -72,8 +72,8 @@ import footerFooter from './components/footer.vue'
    bottom: 0;
   }
 
-  .berg {
-    min-width: 2600px;
+  .background {
+    min-width: 4000px;
    
 }
 /* @media (min-width: 2000px) {
