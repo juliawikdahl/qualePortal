@@ -4,7 +4,6 @@ import treeView from './components/treeView.vue'
 import footerFooter from './components/footer.vue'
 
 
-
   export default {
     name: "App",
     created() {
