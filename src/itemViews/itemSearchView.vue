@@ -67,7 +67,9 @@
           this.getItemById(this.$route.params.id);
           this.getItemMetaData();
         },
-
+        refreshData: function(){
+          this.fetchCategories();
+        },
         getItemById(id) {
             this.selectedItem = this.itemsJson.filter(item => item.Id == id)[0];
             if (!this.selectedItem)
@@ -143,7 +145,7 @@
         </div> 
      </div>   
 
-    <EditItemComponent :item="selectedItem" @closeModal="showModal=false" v-if="showModal && selectedItem.Id" />
+    <EditItemComponent :item="selectedItem" @closeModal="showModal=false, refreshData()" v-if="showModal && selectedItem.Id" />
   </div>
 </template>
 
