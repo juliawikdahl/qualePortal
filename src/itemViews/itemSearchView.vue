@@ -202,6 +202,7 @@
     min-height: 10rem;
     min-width: 35rem;
     margin-bottom: 0.3rem;
+    white-space: pre-wrap;
 }
 
 
