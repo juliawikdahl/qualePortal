@@ -68,5 +68,17 @@ import footerFooter from './components/footer.vue'
   .footer{
     display: flex-end;
     align-items: flex-end;
+    position: fixed;
+   bottom: 0;
   }
+
+  .berg {
+    min-width: 2600px;
+   
+}
+/* @media (min-width: 2000px) {
+    .berg {
+        min-width: 4000px;
+    }
+  } */
   </style>

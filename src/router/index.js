@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import homePage from '../views/homePage.vue'
 import itemPage from '../views/itemPage.vue'
 import categoryPage from '../views/categoryPage.vue'
 import allCategoriesView from '../itemViews/itemCategoriesView.vue'
@@ -9,11 +8,6 @@ import errorPage from '../views/errorPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/home',
-    name: 'home',
-    component: homePage,
-  },
   {
     name: 'category',
     path: '/category/:name',

@@ -214,7 +214,7 @@
                       spellcheck="false"
                       v-model="codeJ"
                       label="Code JSON"
-                      rows="2"
+                      rows="4"
                     ></v-textarea>
               </v-container>
               <v-container fluid>

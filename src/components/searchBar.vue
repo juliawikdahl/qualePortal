@@ -14,6 +14,9 @@
 
           this.items = this.getItems();
         },    
+        refreshData: function(){
+          this.fetchItems();
+        },
       },
       watch: {
         searchedItem() {
@@ -43,6 +46,7 @@
     
         <div class="search-b" data-app>
        <v-autocomplete
+             @click = "refreshData()"
               v-model="searchedItem"
               dense
               rounded
